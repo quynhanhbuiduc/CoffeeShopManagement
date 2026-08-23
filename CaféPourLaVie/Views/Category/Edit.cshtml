@@ -1,0 +1,30 @@
+﻿@model CaféPourLaVie.Models.Category
+
+<h1>Sửa danh mục</h1>
+
+
+<form asp-action="Edit"
+      method="post">
+
+    
+    <input type="hidden" asp-for="CategoryId" /> 
+
+    <div>
+        <label>Tên danh mục</label>
+        <input asp-for="CategoryName" class="form-control" />
+    </div>
+
+
+    <div>
+        <label>Mô tả</label>
+
+        <textarea asp-for="Description"
+                  class="form-control"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">
+        Lưu thay đổi
+    </button>
+
+</form>

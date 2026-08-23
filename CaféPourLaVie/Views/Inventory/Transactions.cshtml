@@ -1,0 +1,97 @@
+﻿@model IEnumerable<CaféPourLaVie.ViewModels.InventoryTransactionViewModel>
+
+@{
+    ViewData["Title"] = "Lịch sử biến động kho";
+}
+
+<h2>Lịch sử biến động kho</h2>
+
+<a asp-action="Index"
+   class="btn btn-secondary mb-3">
+    Quản lý tồn kho
+</a>
+
+<table class="table table-bordered table-hover">
+
+    <thead>
+        <tr>
+            <th>Thời gian</th>
+            <th>Sản phẩm</th>
+            <th>Loại biến động</th>
+            <th>Số lượng</th>
+            <th>Ghi chú</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.TransactionDate.ToString(
+                        "dd/MM/yyyy HH:mm")
+                </td>
+
+                <td>
+                    @item.ProductName
+                </td>
+
+                <td>
+
+                    @if (item.Type == "Import")
+                    {
+                        <span class="badge bg-success">
+                            Nhập hàng
+                        </span>
+                    }
+                    else if (item.Type == "Sale")
+                    {
+                        <span class="badge bg-danger">
+                            Bán hàng
+                        </span>
+                    }
+                    else if (item.Type == "CancelOrder")
+                    {
+                        <span class="badge bg-warning text-dark">
+                            Hủy đơn
+                        </span>
+                    }
+
+                </td>
+
+                <td>
+
+                    @if (item.Type == "Sale")
+                    {
+                        <span class="text-danger">
+                            -@item.Quantity
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="text-success">
+                            +@item.Quantity
+                        </span>
+                    }
+
+                </td>
+
+                <td>
+                    @item.Note
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Chưa có lịch sử biến động kho.
+    </div>
+}

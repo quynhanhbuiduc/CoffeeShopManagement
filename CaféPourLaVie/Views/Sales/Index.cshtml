@@ -1,0 +1,160 @@
+﻿@model IEnumerable<CaféPourLaVie.Models.Product>
+
+@{
+    ViewData["Title"] = "Bán hàng";
+}
+
+<div class="pos-page">
+    <!-- POS HEADER -->
+    <div class="pos-header">
+
+        <div>
+            <h1 class="pos-title">Bán hàng</h1>
+            <p class="pos-subtitle">
+                Chọn sản phẩm để thêm vào đơn hàng
+            </p>
+        </div>
+
+        <a asp-action="Cart" class="btn pos-cart-btn">
+            Xem giỏ hàng
+        </a>
+
+    </div>
+
+
+    <!-- SEARCH -->
+    <div class="pos-search-box">
+
+        <form asp-action="Index" method="get">
+
+            @if (ViewBag.SelectedCategory != null)
+            {
+                <input type="hidden"
+                       name="categoryId"
+                       value="@ViewBag.SelectedCategory" />
+            }
+
+            <div class="search-wrapper">
+                <input type="text" name="searchString" value="@ViewBag.SearchString" 
+                    placeholder="Tìm tên sản phẩm..." class="form-control pos-search-input" />
+                
+                <button type="submit" class="btn btn-primary search-btn">
+                    Tìm kiếm
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- CATEGORY -->
+    <div class="pos-section">
+
+        <div class="section-title">
+            Danh mục
+        </div>
+
+        <div class="category-list">
+            <a asp-action="Index" class="category-btn @(ViewBag.SelectedCategory == null ? "active" : "")">
+                Tất cả
+            </a>
+
+            @foreach (var category in ViewBag.Categories)
+            {
+                <a asp-action="Index" asp-route-categoryId="@category.CategoryId"
+                   class="category-btn @(ViewBag.SelectedCategory == category.CategoryId ? "active" : "")">
+                    @category.CategoryName
+                </a>
+            }
+
+        </div>
+    </div>
+
+
+    <!-- PRODUCTS -->
+    <div class="pos-products-header">
+
+        <div>
+            <span class="section-title">
+                Sản phẩm
+            </span>
+
+            <span class="product-count">
+                @Model.Count() sản phẩm
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="row g-4">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="pos-product-card">
+                    <!-- IMAGE -->
+                    <div class="product-image-wrapper">
+                        @if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            <img src="@item.Image" class="product-image" alt="@item.ProductName" />
+                        }
+                        else
+                        {
+                            <div class="product-no-image">
+                                ☕
+                            </div>
+                        }
+                    </div>
+
+
+                    <!-- INFO -->
+                    <div class="product-info">
+                        <h5 class="product-name"> @item.ProductName </h5>
+
+                        <div class="product-price"> @item.Price.ToString("#,##0") đ </div>
+                        
+                        <div class="product-stock">
+                            <span> Tồn kho </span>
+
+                            @if (item.Quantity == 0)
+                            {
+                                <span class="stock-badge out">
+                                    Hết hàng
+                                </span>
+                            }
+                            else if (item.Quantity < 10)
+                            {
+                                <span class="stock-badge low">
+                                    @item.Quantity
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="stock-badge available">
+                                    @item.Quantity
+                                </span>
+                            }
+                    </div>
+
+
+                        <!-- ACTION -->
+                        @if (item.Quantity == 0)
+                        {
+                            <button class="btn btn-secondary w-100" disabled>
+                                Hết hàng
+                            </button>
+                        }
+                        else
+                        {
+                            <a asp-action="AddToCart" asp-route-id="@item.ProductId"
+                               asp-route-categoryId="@item.CategoryId" class="btn btn-primary w-100 add-product-btn">
+                                Thêm vào giỏ
+                            </a>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,185 @@
+﻿@model IEnumerable<CaféPourLaVie.Models.Product>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+}
+
+<h2 class="mb-4">Danh sách sản phẩm</h2>
+
+<!-- Filter Category -->
+<div class="mb-3">
+
+    <a asp-action="Index"
+       class="btn @(ViewBag.SelectedCategory == null ? "btn-primary" : "btn-outline-primary")">
+        Tất cả
+    </a>
+
+    @foreach (var category in ViewBag.Categories)
+    {
+        <a asp-action="Index"
+           asp-route-categoryId="@category.CategoryId"
+           class="btn @(ViewBag.SelectedCategory == category.CategoryId ? "btn-primary" : "btn-outline-primary")">
+
+            @category.CategoryName
+
+        </a>
+    }
+
+</div>
+
+<!-- Search + Button -->
+<div class="row mb-3">
+    <div class="col-md-8">
+        <form asp-action="Index" method="get">
+            <input type="hidden"
+                   name="categoryId"
+                   value="@ViewBag.SelectedCategory"/>
+
+            <div class="input-group">
+                <input
+                    name="keyword"
+                    value="@ViewBag.Keyword"
+                    class="form-control"
+                    placeholder="Tìm sản phẩm..." />
+
+                <button class="btn btn-primary">
+                    Tìm
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="col-md-4 text-end">
+
+        <a asp-action="Create"
+           class="btn btn-success">
+            Thêm sản phẩm
+        </a>
+
+    </div>
+
+</div>
+
+@*Show Products*@
+<table class="table table-hover table-bordered align-middle">
+    <thead>
+        <tr>
+            <th>Hình ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Danh mục</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Trạng thái</th>
+            <th>Ngày tạo</th>
+            <th class="text-center" width="180">
+                Thao tác
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.Image))
+                    {
+                        <img src="@item.Image"
+                             alt="@item.ProductName"
+                             class="img-thumbnail"
+                             style="max-width:100px; max-height:100px;" />
+                    }
+                </td>
+
+                <td>@item.ProductName</td>
+
+                <td>@item.Category.CategoryName</td>
+
+                <td>@item.Price.ToString("#,##0") đ</td>
+
+                <td>
+
+                    @if (item.Quantity == 0)
+                    {
+                        <span class="badge bg-danger">
+                            Hết hàng
+                        </span>
+                    }
+                    else if (item.Quantity <= 5)
+                    {
+                        <span class="badge bg-warning text-dark">
+                            @item.Quantity
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">
+                            @item.Quantity
+                        </span>
+                    }
+
+                </td>
+
+                <td>
+                    @if (item.Status)
+                    {
+                        <span class="badge bg-success">
+                            Đang bán
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">
+                            Ngừng bán
+                        </span>
+                    }
+                </td>
+
+                <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
+
+                <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@item.ProductId"
+                       class="btn btn-warning btn-sm">
+                        Sửa
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@item.ProductId"
+                       class="btn btn-danger btn-sm">
+                        Xóa
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+<nav class="mt-4 d-flex justify-content-center">
+
+    <ul class="pagination">
+
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+
+                <a class="page-link"
+                   asp-action="Index"
+                   asp-route-page="@i"
+                   asp-route-categoryId="@ViewBag.SelectedCategory"
+                   asp-route-keyword="@ViewBag.Keyword">
+
+                    @i
+
+                </a>
+
+            </li>
+        }
+
+    </ul>
+
+</nav>

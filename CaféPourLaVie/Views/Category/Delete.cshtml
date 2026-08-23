@@ -1,0 +1,35 @@
+﻿@model CaféPourLaVie.Models.Category
+
+<h1>Xóa danh mục</h1>
+
+<h3>Bạn có chắc muốn xóa?</h3>
+
+
+<div>
+    <p>
+        Tên:
+        @Model.CategoryName
+    </p>
+
+    <p>
+        Mô tả:
+        @Model.Description
+    </p>
+</div>
+
+
+<form asp-action="Delete">
+
+    <input type="hidden"
+           asp-for="CategoryId" />
+
+    <button type="submit" class="btn btn-danger">
+        Xóa
+    </button>
+
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Quay lại
+    </a>
+
+</form>

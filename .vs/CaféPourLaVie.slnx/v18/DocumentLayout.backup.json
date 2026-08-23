@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\views\\sales\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\views\\sales\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\controllers\\salescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\controllers\\salescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SalesController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Controllers\\SalesController.cs",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Controllers\\SalesController.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Controllers\\SalesController.cs",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Controllers\\SalesController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAiwCQAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-23T14:32:13.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Views\\Sales\\Index.cshtml",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Views\\Sales\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Views\\Sales\\Index.cshtml*",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Views\\Sales\\Index.cshtml*",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAACQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-23T14:27:11.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAGsCAAAAAAAAAAAuwF4CAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-08-23T14:22:29.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAAAL0AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-23T14:18:31.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-17T12:21:37.35Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+﻿@model CaféPourLaVie.Models.Product
+
+<h2>Xóa sản phẩm</h2>
+
+<h4>Bạn có chắc muốn xóa?</h4>
+
+<hr />
+
+<dl class="row">
+
+    <dt class="col-sm-3">
+        Tên
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.ProductName
+    </dd>
+
+    <dt class="col-sm-3">
+        Danh mục
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.Category.CategoryName
+    </dd>
+
+    <dt class="col-sm-3">
+        Giá
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.Price
+    </dd>
+
+    <dt class="col-sm-3">
+        Số lượng
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.Quantity
+    </dd>
+
+</dl>
+
+<form asp-action="Delete">
+
+    <input type="hidden"
+           asp-for="ProductId" />
+
+    <button class="btn btn-danger">
+        Xóa
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Hủy
+    </a>
+
+</form>

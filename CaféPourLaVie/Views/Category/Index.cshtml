@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CaféPourLaVie.Models.Category>
+
+<h1>Danh sách danh mục</h1>
+
+<td colspan="2">
+    <a asp-action="Create"
+       class="btn btn-primary">
+        Thêm danh mục
+    </a>
+</td>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên danh mục</th>
+            <th>Mô tả</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td class="fw-semibold">
+                    @item.CategoryName
+                </td>
+
+                <td>
+                    @item.Description
+                </td>
+
+                <td colspan="2">
+                    <a asp-action="Edit" 
+                        asp-route-id="@item.CategoryId" class="btn btn-warning">
+                        Sửa
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Delete"
+                        asp-route-id="@item.CategoryId" class="btn btn-danger">
+                        Xóa
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

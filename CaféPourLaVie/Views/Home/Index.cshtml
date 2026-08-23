@@ -1,0 +1,315 @@
+﻿@model CaféPourLaVie.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container-fluid">
+
+    <!-- ================= HEADER ================= -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>Dashboard</h2>
+            <p class="text-muted mb-0">
+                Tổng quan hoạt động kinh doanh
+            </p>
+        </div>
+    </div>
+
+
+    <!-- ================= SUMMARY CARDS ================= -->
+    <div class="row g-3 mb-4">
+
+        <!-- Doanh thu hôm nay -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h6 class="text-muted">
+                        Doanh thu hôm nay
+                    </h6>
+
+                    <h3 class="mt-2">
+                        @Model.TodayRevenue.ToString("#,##0") đ
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Đơn hàng hôm nay -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h6 class="text-muted">
+                        Đơn hàng hôm nay
+                    </h6>
+
+                    <h3 class="mt-2">
+                        @Model.TodayOrders
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Tổng sản phẩm -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h6 class="text-muted">
+                        Tổng sản phẩm
+                    </h6>
+
+                    <h3 class="mt-2">
+                        @Model.TotalProducts
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Sản phẩm sắp hết -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h6 class="text-muted">
+                        Sản phẩm sắp hết
+                    </h6>
+
+                    <h3 class="mt-2 text-warning">
+                        @Model.LowStockProducts
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOP PRODUCTS + LOW STOCK ================= -->
+    <div class="row g-4 mb-4">
+
+        <!-- TOP PRODUCTS -->
+        <div class="col-md-7">
+
+            <div class="card shadow-sm">
+
+                <div class="card-header">
+                    <strong>Top sản phẩm bán chạy</strong>
+                </div>
+
+                <div class="card-body p-0">
+
+                    <div class="table-responsive">
+
+                        <table class="table table-hover mb-0">
+
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Số lượng bán</th>
+                                    <th>Doanh thu</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @if (Model.TopProducts != null &&
+                                     Model.TopProducts.Any())
+                                {
+                                    int rank = 1;
+
+                                    foreach (var product in Model.TopProducts)
+                                    {
+                                        <tr>
+                                            <td> @rank </td>
+
+                                            <td> @product.ProductName </td>
+
+                                            <td> @product.QuantitySold </td>
+
+                                            <td> @product.Revenue.ToString("#,##0") đ </td>
+                                        </tr>
+
+                                        rank++;
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="4"
+                                            class="text-center text-muted">
+                                            Chưa có dữ liệu bán hàng.
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOW STOCK -->
+        <div class="col-md-5">
+
+            <div class="card shadow-sm">
+
+                <div class="card-header">
+                    <strong> Hàng sắp hết</strong>
+                </div>
+
+                <div class="card-body p-0">
+
+                    <div class="table-responsive">
+
+                        <table class="table table-hover mb-0">
+
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Tồn kho</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @if (Model.LowStockList != null &&
+                                     Model.LowStockList.Any())
+                                {
+                                    foreach (var product in Model.LowStockList)
+                                    {
+                                        <tr>
+
+                                            <td> @product.ProductName </td>
+
+                                            <td class="text-warning fw-bold">
+                                                @product.Quantity
+                                            </td>
+
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="2" class="text-center text-muted">
+                                            Không có sản phẩm sắp hết.
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= RECENT ORDERS ================= -->
+    <div class="card shadow-sm">
+
+        <div class="card-header">
+            <strong>Đơn hàng gần đây</strong>
+        </div>
+
+        <div class="card-body p-0">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover mb-0">
+
+                    <thead>
+
+                        <tr>
+                            <th>Mã đơn</th>
+                            <th>Ngày</th>
+                            <th>Nhân viên</th>
+                            <th>Thanh toán</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model.RecentOrders != null &&
+                             Model.RecentOrders.Any())
+                        {
+                            foreach (var order in Model.RecentOrders)
+                            {
+                                <tr>
+
+                                    <td> #@order.OrderId </td>
+
+                                    <td> @order.OrderDate.ToString("dd/MM/yyyy HH:mm") </td>
+
+                                    <td> @order.Account?.Username </td>
+
+                                    <td> @order.PaymentMethod?.MethodName </td>
+
+                                    <td>  @order.TotalAmount.ToString("#,##0") đ </td>
+
+                                    <td>
+                                        @if (order.Status == CaféPourLaVie.Models.Enums.OrderStatus.Completed)
+                                        {
+                                            <span class="badge bg-success">
+                                                Hoàn thành
+                                            </span>
+                                        }
+                                        else if (order.Status == CaféPourLaVie.Models.Enums.OrderStatus.Cancelled)
+                                        {
+                                            <span class="badge bg-danger">
+                                                Đã hủy
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-warning text-dark">
+                                                Chờ xử lý
+                                            </span>
+                                        }
+
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="6"
+                                    class="text-center text-muted">
+                                    Chưa có đơn hàng.
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

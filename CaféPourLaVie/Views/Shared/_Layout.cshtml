@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - CaféPourLaVie</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CaféPourLaVie.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+
+    @{
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+    }
+
+
+    <!-- ========================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================= -->
+    <aside class="sidebar">
+
+        <!-- Logo -->
+        <div class="sidebar-brand">
+            <div class="brand-icon"> 
+                ☕ 
+             </div>
+
+            <span> 
+                Café Pour La Vie 
+            </span>
+        </div>
+
+
+        <!-- Menu -->
+        <ul class="sidebar-menu">
+
+            <!-- Dashboard -->
+            @if (User.IsInRole("Admin"))
+            {
+                <li>
+                    <a asp-controller="Home" asp-action="Index"
+                       class="sidebar-link @(currentController == "Home" ? "active" : "")">
+                        <span class="menu-icon">▦</span>
+                        <span>Dashboard</span>
+
+                    </a>
+                </li>
+            }
+
+
+            <!-- ========================= -->
+            <!-- ADMIN + EMPLOYEE -->
+            <!-- ========================= -->
+
+            @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+
+                <!-- Sales -->
+                <li>
+                    <a asp-controller="Sales" asp-action="Index"
+                       class="sidebar-link @(currentController == "Sales" ? "active" : "")">
+                        <span class="menu-icon">🛒</span>
+                        <span>Bán hàng</span>
+                    </a>
+                </li>
+
+
+                <!-- Orders -->
+                <li>
+                    <a asp-controller="Order" asp-action="Index"
+                       class="sidebar-link @(currentController == "Order" ? "active" : "")">
+                        <span class="menu-icon">🧾</span>
+                        <span>Hóa đơn</span>
+                    </a>
+                </li>
+
+
+                <!-- Import -->
+                <li>
+                    <a asp-controller="Import" asp-action="Index"
+                       class="sidebar-link @(currentController == "Import" ? "active" : "")">
+                        <span class="menu-icon">📦</span>
+                        <span>Nhập hàng</span>
+                    </a>
+                </li>
+
+            }
+
+
+            <!-- ========================= -->
+            <!-- ADMIN ONLY -->
+            <!-- ========================= -->
+
+            @if (User.IsInRole("Admin"))
+            {
+
+                <!-- Products -->
+                <li>
+                    <a asp-controller="Product" asp-action="Index"
+                       class="sidebar-link @(currentController == "Product" ? "active" : "")">
+                        <span class="menu-icon">☕</span>
+                        <span>Sản phẩm</span>
+                    </a>
+                </li>
+
+
+                <!-- Categories -->
+                <li>
+                    <a asp-controller="Category" asp-action="Index"
+                       class="sidebar-link @(currentController == "Category" ? "active" : "")">
+                        <span class="menu-icon">▤</span>
+                        <span>Danh mục</span>
+                    </a>
+                </li>
+
+
+                <!-- Employees -->
+                <li>
+                    <a asp-controller="Employee" asp-action="Index"
+                       class="sidebar-link @(currentController == "Employee" ? "active" : "")">
+                        <span class="menu-icon">👤</span>
+                        <span>Nhân viên</span>
+                    </a>
+                </li>
+
+
+                <!-- Inventory -->
+                <li>
+                    <a asp-controller="Inventory" asp-action="Index"
+                       class="sidebar-link @(currentController == "Inventory" ? "active" : "")">
+                        <span class="menu-icon">📊</span>
+                        <span>Hàng tồn kho</span>
+                    </a>
+                </li>
+
+
+                <!-- Report -->
+                <li>
+                    <a asp-controller="Report" asp-action="Index"
+                       class="sidebar-link @(currentController == "Report" ? "active" : "")">
+                        <span class="menu-icon">📈</span>
+                        <span>Báo cáo</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </aside>
+
+
+
+    <!-- ========================= -->
+    <!-- MAIN AREA -->
+    <!-- ========================= -->
+    <div class="main-wrapper">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <div class="welcome-text"> 
+                Xin chào,
+                <strong>@User.Identity?.Name</strong>!
+            </div>
+
+
+            <a asp-controller="Account" asp-action="Logout" class="logout-btn">
+                Đăng xuất
+            </a>
+        </header>
+
+
+
+        <!-- PAGE CONTENT -->
+        <main class="page-content">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- SCRIPTS -->
+    <!-- ========================= -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

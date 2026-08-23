@@ -1,0 +1,200 @@
+﻿@model CaféPourLaVie.Models.ImportReceipt
+
+@using CaféPourLaVie.Models.Enums
+
+@{
+    ViewData["Title"] = "Chi tiết phiếu nhập";
+}
+
+<h2>
+    Chi tiết phiếu nhập #@Model.ImportReceiptId
+</h2>
+
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+
+<div class="card mb-3">
+
+    <div class="card-body">
+
+        <p>
+            <strong>Mã phiếu:</strong>
+            #@Model.ImportReceiptId
+        </p>
+
+        <p>
+            <strong>Ngày tạo:</strong>
+            @Model.ImportDate.ToString(
+                "dd/MM/yyyy HH:mm"
+            )
+        </p>
+
+        <p>
+            <strong>Người tạo:</strong>
+            @Model.Account?.Username
+        </p>
+
+        <p>
+            <strong>Trạng thái:</strong>
+
+            @if (Model.Status == ImportStatus.Pending)
+            {
+                <span class="badge bg-warning text-dark">
+                    Chờ duyệt
+                </span>
+            }
+            else if (Model.Status == ImportStatus.Approved)
+            {
+                <span class="badge bg-success">
+                    Đã duyệt
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-danger">
+                    Từ chối
+                </span>
+            }
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<h4>Danh sách sản phẩm</h4>
+
+
+<table class="table table-bordered">
+
+    <thead>
+
+        <tr>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá nhập</th>
+            <th>Thành tiền</th>
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+        @foreach (var detail in Model.ImportDetails)
+        {
+            <tr>
+
+                <td>
+                    @detail.Product?.ProductName
+                </td>
+
+                <td>
+                    @detail.Quantity
+                </td>
+
+                <td>
+                    @detail.ImportPrice.ToString(
+                        "#,##0"
+                    ) đ
+                </td>
+
+                <td>
+                    @detail.SubTotal.ToString(
+                        "#,##0"
+                    ) đ
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+<div class="text-end mb-3">
+
+    <h4>
+        Tổng tiền:
+        @Model.TotalAmount.ToString("#,##0") đ
+    </h4>
+
+</div>
+
+
+@if (Model.Status == ImportStatus.Pending)
+{
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="d-flex gap-2">
+
+            <form asp-action="Approve"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden"
+                       name="id"
+                       value="@Model.ImportReceiptId" />
+
+                <button type="submit"
+                        class="btn btn-success"
+                        onclick="return confirm(
+                    'Bạn có chắc muốn duyệt phiếu nhập này?'
+                    );">
+
+                    Duyệt phiếu nhập
+
+                </button>
+
+            </form>
+
+
+            <form asp-action="Reject"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden"
+                       name="id"
+                       value="@Model.ImportReceiptId" />
+
+                <button type="submit"
+                        class="btn btn-danger"
+                        onclick="return confirm(
+                    'Bạn có chắc muốn từ chối phiếu nhập này?'
+                    );">
+
+                    Từ chối
+
+                </button>
+
+            </form>
+
+        </div>
+    }
+}
+
+
+<a asp-action="Index"
+   class="btn btn-secondary mt-3">
+
+    Quay lại
+
+</a>

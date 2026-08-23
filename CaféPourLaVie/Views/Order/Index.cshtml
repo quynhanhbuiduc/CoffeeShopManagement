@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CaféPourLaVie.Models.Order>
+
+@{
+    ViewData["Title"] = "Danh sách hóa đơn";
+}
+
+<h2>Danh sách đơn hàng</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Mã đơn hàng</th>
+            <th>Ngày</th>
+            <th>Nhân viên</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> HD@(item.OrderId.ToString("D6")) </td>
+
+                <td> @item.OrderDate.ToString("dd/MM/yyyy HH:mm") </td>
+
+                <td> @item.Account.Username </td>
+
+                <td> @item.TotalAmount.ToString("N0") đ </td>
+
+                <td>
+                    @if (item.Status == CaféPourLaVie.Models.Enums.OrderStatus.Completed)
+                    {
+                        <span class="badge bg-success">Hoàn thành</span>
+                    }
+                    else if (item.Status == CaféPourLaVie.Models.Enums.OrderStatus.Cancelled)
+                    {
+                        <span class="badge bg-secondary">Đã hủy</span>
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.OrderId" class="btn btn-primary btn-sm">
+                        Chi tiết
+                    </a>
+
+                    @if (item.Status == CaféPourLaVie.Models.Enums.OrderStatus.Completed)
+                    {
+                        <form asp-action="Cancel" asp-controller="Order" asp-route-id="@item.OrderId" method="post" class="d-inline" onsubmit="return confirm('Bạn có chắc chắn muốn hủy hóa đơn này và hoàn lại số lượng vào kho không?');">
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                Hủy hóa đơn
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

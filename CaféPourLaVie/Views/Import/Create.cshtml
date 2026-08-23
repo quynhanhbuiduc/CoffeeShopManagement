@@ -1,0 +1,350 @@
+﻿@using CaféPourLaVie.Models
+
+@{
+    ViewData["Title"] = "Tạo phiếu nhập";
+
+    var products =
+        ViewBag.Products as List<Product>;
+}
+
+<h2>Tạo phiếu nhập</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<div class="alert alert-info">
+    Phiếu nhập sau khi tạo sẽ ở trạng thái
+    <strong>Chờ duyệt</strong>.
+    Tồn kho chỉ được cập nhật sau khi Admin duyệt phiếu.
+</div>
+
+
+<form asp-action="Create" method="post">
+
+    @Html.AntiForgeryToken()
+
+    <button type="button"
+            class="btn btn-primary mb-3"
+            id="btnAddProduct">
+
+        Thêm sản phẩm
+
+    </button>
+
+
+    <table class="table table-bordered">
+
+        <thead>
+
+            <tr>
+                <th>Sản phẩm</th>
+                <th style="width:150px">
+                    Số lượng
+                </th>
+
+                <th style="width:180px">
+                    Giá nhập
+                </th>
+
+                <th style="width:180px">
+                    Thành tiền
+                </th>
+
+                <th style="width:80px"></th>
+            </tr>
+
+        </thead>
+
+
+        <tbody id="importBody">
+        </tbody>
+
+    </table>
+
+
+    <div class="text-end">
+
+        <h4>
+            Tổng tiền:
+            <span id="totalAmount">
+                0
+            </span>
+            đ
+        </h4>
+
+    </div>
+
+
+    <button type="submit"
+            class="btn btn-success">
+
+        Lưu phiếu nhập
+
+    </button>
+
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+
+        Hủy
+
+    </a>
+
+</form>
+
+
+<script>
+
+    let rowIndex = 0;
+
+
+    // =========================
+    // ADD PRODUCT
+    // =========================
+
+    document
+        .getElementById("btnAddProduct")
+        .addEventListener("click", function () {
+
+            const tbody =
+                document.getElementById(
+                    "importBody"
+                );
+
+
+            const row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>
+
+                    <select
+                        name="details[${rowIndex}].ProductId"
+                        class="form-select product-select"
+                        required>
+
+                        <option value="">
+                            -- Chọn sản phẩm --
+                        </option>
+
+                        @foreach (var product in products)
+                        {
+                            <option value="@product.ProductId">
+                                @product.ProductName
+                            </option>
+                        }
+
+                    </select>
+
+                </td>
+
+
+                <td>
+
+                    <input
+                        type="number"
+                        name="details[${rowIndex}].Quantity"
+                        class="form-control quantity"
+                        min="1"
+                        value="1"
+                        required />
+
+                </td>
+
+
+                <td>
+
+                    <input
+                        type="number"
+                        name="details[${rowIndex}].ImportPrice"
+                        class="form-control import-price"
+                        min="0"
+                        step="1000"
+                        required />
+
+                </td>
+
+
+                <td>
+
+                    <span class="subtotal">
+                        0
+                    </span>
+                    đ
+
+                </td>
+
+
+                <td>
+
+                    <button
+                        type="button"
+                        class="btn btn-danger btn-remove">
+
+                        Xóa
+
+                    </button>
+
+                </td>
+
+            `;
+
+
+            tbody.appendChild(row);
+
+            rowIndex++;
+
+            updateEvents();
+
+        });
+
+
+    // =========================
+    // EVENTS
+    // =========================
+
+    function updateEvents()
+    {
+        const rows =
+            document.querySelectorAll(
+                "#importBody tr"
+            );
+
+
+        rows.forEach(function (row)
+        {
+            const quantity =
+                row.querySelector(
+                    ".quantity"
+                );
+
+
+            const price =
+                row.querySelector(
+                    ".import-price"
+                );
+
+
+            const removeButton =
+                row.querySelector(
+                    ".btn-remove"
+                );
+
+
+            quantity.addEventListener(
+                "input",
+                calculate
+            );
+
+
+            price.addEventListener(
+                "input",
+                calculate
+            );
+
+
+            removeButton.addEventListener(
+                "click",
+                function ()
+                {
+                    row.remove();
+
+                    calculateTotal();
+                }
+            );
+        });
+    }
+
+
+    // =========================
+    // CALCULATE SUBTOTAL
+    // =========================
+
+    function calculate()
+    {
+        const row = this.closest("tr");
+
+
+        const quantity =
+            Number(
+                row.querySelector(
+                    ".quantity"
+                ).value
+            ) || 0;
+
+
+        const price =
+            Number(
+                row.querySelector(
+                    ".import-price"
+                ).value
+            ) || 0;
+
+
+        const subtotal = quantity * price;
+
+
+        row.querySelector(
+            ".subtotal"
+        ).innerText =
+            subtotal.toLocaleString(
+                "vi-VN"
+            );
+
+
+        calculateTotal();
+    }
+
+
+    // =========================
+    // CALCULATE TOTAL
+    // =========================
+
+    function calculateTotal()
+    {
+        let total = 0;
+
+
+        document
+            .querySelectorAll(
+                "#importBody tr"
+            )
+            .forEach(function (row)
+            {
+                const quantity =
+                    Number(
+                        row.querySelector(
+                            ".quantity"
+                        ).value
+                    ) || 0;
+
+
+                const price =
+                    Number(
+                        row.querySelector(
+                            ".import-price"
+                        ).value
+                    ) || 0;
+
+
+                total += quantity * price;
+            });
+
+
+        document
+            .getElementById(
+                "totalAmount"
+            )
+            .innerText =
+            total.toLocaleString(
+                "vi-VN"
+            );
+    }
+
+</script>

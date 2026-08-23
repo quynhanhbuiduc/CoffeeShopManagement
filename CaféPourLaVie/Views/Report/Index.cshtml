@@ -1,0 +1,414 @@
+﻿@model CaféPourLaVie.ViewModels.ReportViewModel
+
+@{
+    ViewData["Title"] = "Báo cáo";
+}
+
+<div class="container-fluid">
+
+    <!-- HEADER -->
+    <div class="mb-4">
+        <h2>Báo cáo</h2>
+        <p class="text-muted">
+            Tổng hợp tình hình kinh doanh
+        </p>
+    </div>
+
+
+    <!-- DATE FILTER -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+
+            <form asp-action="Index"
+                  asp-controller="Report"
+                  method="get"
+                  class="row g-3 align-items-end">
+
+                <div class="col-md-4">
+                    <label class="form-label">
+                        Từ ngày
+                    </label>
+
+                    <input type="date"
+                           name="fromDate"
+                           value="@Model.FromDate.ToString("yyyy-MM-dd")"
+                           class="form-control" />
+                </div>
+
+
+                <div class="col-md-4">
+                    <label class="form-label">
+                        Đến ngày
+                    </label>
+
+                    <input type="date"
+                           name="toDate"
+                           value="@Model.ToDate.ToString("yyyy-MM-dd")"
+                           class="form-control" />
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Xem báo cáo
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- SALES SUMMARY -->
+    <h5 class="mb-3">
+        Tổng quan bán hàng
+    </h5>
+
+    <div class="row g-3 mb-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        Tổng doanh thu
+                    </h6>
+
+                    <h3>
+                        @Model.TotalRevenue.ToString("#,##0") đ
+                    </h3>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        Tổng số đơn hàng
+                    </h6>
+
+                    <h3>
+                        @Model.TotalOrders
+                    </h3>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        Giá trị đơn trung bình
+                    </h6>
+
+                    <h3>
+                        @Model.AverageOrderValue.ToString("#,##0") đ
+                    </h3>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- REVENUE CHART -->
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-header">
+            <strong>Doanh thu theo ngày</strong>
+        </div>
+
+        <div class="card-body">
+            <canvas id="revenueChart" style="max-height: 350px;"> </canvas>
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCT SALES -->
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-header">
+            <strong>
+                Sản phẩm bán chạy
+            </strong>
+        </div>
+
+        <div class="card-body p-0">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover mb-0">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng bán</th>
+                            <th>Doanh thu</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model.ProductSales.Any())
+                        {
+                            int rank = 1;
+
+                            foreach (var product in Model.ProductSales)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @rank
+                                    </td>
+
+                                    <td>
+                                        @product.ProductName
+                                    </td>
+
+                                    <td>
+                                        @product.QuantitySold
+                                    </td>
+
+                                    <td>
+                                        @product.Revenue.ToString("#,##0") đ
+                                    </td>
+
+                                </tr>
+
+                                rank++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="4"
+                                    class="text-center text-muted">
+                                    Không có dữ liệu bán hàng trong khoảng thời gian này.
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INVENTORY + IMPORT -->
+    <div class="row g-4 mb-4">
+
+        <!-- INVENTORY -->
+        <div class="col-md-6">
+
+            <div class="card shadow-sm h-100">
+
+                <div class="card-header">
+                    <strong>
+                        Tình hình tồn kho
+                    </strong>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>
+                            Tổng sản phẩm
+                        </span>
+
+                        <strong>
+                            @Model.TotalProducts
+                        </strong>
+                    </div>
+
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>
+                            Sản phẩm sắp hết
+                        </span>
+
+                        <strong class="text-warning">
+                            @Model.LowStockProducts
+                        </strong>
+                    </div>
+
+
+                    <div class="d-flex justify-content-between">
+                        <span>
+                            Giá trị hàng tồn kho
+                        </span>
+
+                        <strong>
+                            @Model.InventoryValue.ToString("#,##0") đ
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMPORT -->
+        <div class="col-md-6">
+
+            <div class="card shadow-sm h-100">
+
+                <div class="card-header">
+                    <strong>
+                        Tình hình nhập hàng
+                    </strong>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between mb-3">
+
+                        <span>
+                            Số phiếu nhập
+                        </span>
+
+                        <strong>
+                            @Model.TotalImportReceipts
+                        </strong>
+
+                    </div>
+
+
+                    <div class="d-flex justify-content-between">
+
+                        <span>
+                            Tổng tiền nhập
+                        </span>
+
+                        <strong>
+                            @Model.TotalImportValue.ToString("#,##0") đ
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const revenueLabels = [
+            @foreach (var item in Model.RevenueByDate)
+            {
+                    @: "@item.Date.ToString("dd/MM")",
+            }
+        ];
+
+        const revenueData = [
+            @foreach (var item in Model.RevenueByDate)
+            {
+                    @: @item.Revenue,
+            }
+        ];
+
+        const orderData = [
+            @foreach (var item in Model.RevenueByDate)
+            {
+                    @: @item.Orders,
+            }
+        ];
+
+
+        const ctx = document.getElementById('revenueChart');
+
+
+        new Chart(ctx, {
+
+            type: 'line',
+
+            data: {
+
+                labels: revenueLabels,
+
+                datasets: [
+                    {
+                        label: 'Doanh thu',
+
+                        data: revenueData,
+
+                        tension: 0.3,
+
+                        fill: false
+                    }
+                ]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false,
+
+                plugins: {
+
+                    legend: {
+                        display: true
+                    }
+
+                },
+
+                scales: {
+
+                    y: {
+
+                        beginAtZero: true,
+
+                        ticks: {
+
+                            callback: function(value) {
+
+                                return value
+                                    .toLocaleString('vi-VN')
+                                    + ' đ';
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        });
+
+    </script>
+}

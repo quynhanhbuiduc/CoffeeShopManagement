@@ -1,0 +1,127 @@
+﻿@model IEnumerable<CaféPourLaVie.ViewModels.InventoryViewModel>
+
+@{
+    ViewData["Title"] = "Quản lý tồn kho";
+}
+
+<h2>Quản lý tồn kho</h2>
+
+<a asp-action="Transactions"
+   class="btn btn-outline-primary mb-3">
+    Xem lịch sử biến động kho
+</a>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+
+<!-- Tìm kiếm -->
+<form asp-action="Index" method="get" class="mb-3">
+
+    <div class="input-group">
+
+        <input type="text"
+               name="searchString"
+               value="@ViewBag.SearchString"
+               class="form-control"
+               placeholder="Tìm sản phẩm..." />
+
+        <button type="submit"
+                class="btn btn-primary">
+            Tìm kiếm
+        </button>
+
+    </div>
+
+</form>
+
+
+<!-- Bảng tồn kho -->
+<table class="table table-bordered table-hover">
+
+    <thead>
+        <tr>
+            <th>Mã SP</th>
+            <th>Sản phẩm</th>
+            <th>Danh mục</th>
+            <th>Giá bán</th>
+            <th>Tồn kho</th>
+            <th>Trạng thái</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.ProductId
+                </td>
+
+                <td>
+                    @item.ProductName
+                </td>
+
+                <td>
+                    @item.CategoryName
+                </td>
+
+                <td>
+                    @item.Price.ToString("#,##0") đ
+                </td>
+
+                <td>
+                    <strong>
+                        @item.Quantity
+                    </strong>
+                </td>
+
+                <td>
+
+                    @if (item.Quantity == 0)
+                    {
+                        <span class="badge bg-danger">
+                            Hết hàng
+                        </span>
+                    }
+                    else if (item.Quantity < 10)
+                    {
+                        <span class="badge bg-warning text-dark">
+                            Sắp hết
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">
+                            Còn hàng
+                        </span>
+                    }
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Không tìm thấy sản phẩm.
+    </div>
+}

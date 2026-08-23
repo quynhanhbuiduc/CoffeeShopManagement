@@ -1,0 +1,94 @@
+﻿@model CaféPourLaVie.Models.Product
+
+@{
+    ViewData["Title"] = "Thêm sản phẩm";
+}
+
+<h2>Thêm sản phẩm</h2>
+
+<form asp-action="Create" enctype="multipart/form-data">
+
+    <div class="mb-3">
+
+        <label asp-for="ProductName"></label>
+
+        <input asp-for="ProductName" class="form-control" />
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="Description"></label>
+
+        <textarea asp-for="Description"
+                  class="form-control"></textarea>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="Price"></label>
+
+        <input asp-for="Price"
+               class="form-control" />
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="Quantity"></label>
+
+        <input asp-for="Quantity"
+               class="form-control" />
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="Image"></label>
+
+        <input type="file"
+               name="imageFile"
+               class="form-control" />
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Danh mục</label>
+
+        <select asp-for="CategoryId"
+                asp-items="ViewBag.CategoryId"
+                class="form-select">
+
+            <option value="">-- Chọn danh mục --</option>
+
+        </select>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="Status"></label>
+
+        <input asp-for="Status" />
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="CreatedDate"></label>
+
+        <input asp-for="CreatedDate" type="date" class="form-control" />
+     </div>
+
+    <button class="btn btn-success">
+        Lưu
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Quay lại
+    </a>
+
+</form>

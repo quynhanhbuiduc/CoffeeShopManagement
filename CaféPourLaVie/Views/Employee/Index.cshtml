@@ -1,0 +1,96 @@
+﻿@model IEnumerable<CaféPourLaVie.Models.Employee>
+
+@{
+    ViewData["Title"] = "Quản lý nhân viên";
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+<h2>Quản lý nhân viên</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">
+        Thêm nhân viên
+    </a>
+</p>
+
+<table class="table table-bordered table-striped align-middle">
+
+    <thead class="table-light">
+        <tr>
+            <th>ID</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>SĐT</th>
+            <th>Địa chỉ</th>
+            <th>Ngày vào làm</th>
+            <th>Tài khoản</th>
+            <th>Vai trò</th>
+            <th>Trạng thái</th>
+            <th width="260"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeId</td>
+
+                <td>@item.EmployeeName</td>
+
+                <td>@item.Email</td>
+
+                <td>@item.Phone</td>
+
+                <td>@item.Address</td>
+
+                <td> @item.HireDate.ToString("dd/MM/yyyy") </td>
+
+                <td> @item.Account.Username </td>
+
+                <td> @item.Account.Role </td>
+
+                <td>
+                    @if (item.Account.Status)
+                    {
+                        <span class="badge bg-success">
+                            Hoạt động
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">
+                            Đã khóa
+                        </span>
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.EmployeeId" class="btn btn-warning btn-sm">
+                        Sửa
+                    </a>
+
+                    <a asp-action="ResetPassword" asp-route-id="@item.EmployeeId" class="btn btn-info btn-sm"
+                       onclick="return confirm('Reset mật khẩu nhân viên này về 123456?')">
+                        Reset MK
+                    </a>
+
+                    <a asp-action="ToggleStatus"
+                       asp-route-id="@item.EmployeeId"
+                       class="btn @(item.Account.Status ? "btn-danger" : "btn-success") btn-sm"
+                       onclick="return confirm('@(item.Account.Status ? "Khóa" : "Mở khóa") tài khoản này?')">
+
+                        @(item.Account.Status ? "Khóa" : "Mở khóa")
+
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

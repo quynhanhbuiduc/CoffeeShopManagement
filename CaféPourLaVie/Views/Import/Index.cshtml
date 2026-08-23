@@ -1,0 +1,104 @@
+﻿@model IEnumerable<CaféPourLaVie.Models.ImportReceipt>
+
+@using CaféPourLaVie.Models.Enums
+
+@{
+    ViewData["Title"] = "Quản lý nhập hàng";
+}
+
+<h2>Quản lý nhập hàng</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<a asp-action="Create" class="btn btn-primary mb-3">
+    + Tạo phiếu nhập
+</a>
+
+<table class="table table-bordered table-hover">
+
+    <thead>
+        <tr>
+            <th>Mã phiếu</th>
+            <th>Ngày nhập</th>
+            <th>Người tạo</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    #@item.ImportReceiptId
+                </td>
+
+                <td>
+                    @item.ImportDate.ToString("dd/MM/yyyy HH:mm")
+                </td>
+
+                <td>
+                    @item.Account?.Username
+                </td>
+
+                <td>
+                    @item.TotalAmount.ToString("#,##0") đ
+                </td>
+
+                <td>
+
+                    @if (item.Status == ImportStatus.Pending)
+                    {
+                        <span class="badge bg-warning text-dark">
+                            Chờ duyệt
+                        </span>
+                    }
+                    else if (item.Status == ImportStatus.Approved)
+                    {
+                        <span class="badge bg-success">
+                            Đã duyệt
+                        </span>
+                    }
+                    else if (item.Status == ImportStatus.Rejected)
+                    {
+                        <span class="badge bg-danger">
+                            Từ chối
+                        </span>
+                    }
+
+                </td>
+
+                <td>
+
+                    <a asp-action="Details"
+                       asp-route-id="@item.ImportReceiptId"
+                       class="btn btn-sm btn-info">
+
+                        Chi tiết
+
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
