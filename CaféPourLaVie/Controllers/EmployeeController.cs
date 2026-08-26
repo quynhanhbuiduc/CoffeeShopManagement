@@ -41,7 +41,7 @@ namespace CaféPourLaVie.Controllers
 
             if (!result.Success)
             {
-                ModelState.AddModelError("", result.Message);
+                ViewData["Error"] = result.Message;
                 return View(model);
             }
 

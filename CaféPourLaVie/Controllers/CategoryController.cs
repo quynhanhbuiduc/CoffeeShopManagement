@@ -39,6 +39,14 @@ namespace CaféPourLaVie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Category category)
         {
+            var inputName = category.CategoryName?.Trim().ToLower();
+
+            if (await _context.Categories.AnyAsync(c => c.CategoryName.Trim().ToLower() == inputName))
+            {
+                ViewData["Error"] = "Không thể thêm danh mục. Tên danh mục này đã tồn tại.";
+                return View(category);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(category); // INSERT INTO Category VALUES(...)

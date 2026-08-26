@@ -2,6 +2,15 @@
 
 <h1>Thêm danh mục</h1>
 
+@if (ViewData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <strong>Không thể thêm danh mục!</strong>
+        <br />
+        @ViewData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
 
 <form asp-action="Create" method="post">
 

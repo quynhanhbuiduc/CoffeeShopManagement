@@ -16,9 +16,7 @@ namespace CaféPourLaVie.Controllers
             _context = context;
         }
         // GET: Product
-        public async Task<IActionResult> Index(int? categoryId,
-                                       string? keyword,
-                                       int page = 1)
+        public async Task<IActionResult> Index(int? categoryId, string? keyword, int page = 1)
         {
             // 1. Prepare data for ViewBag (Categories, SelectedCategory, Keyword)
             ViewBag.Categories = await _context.Categories.ToListAsync();
@@ -69,24 +67,52 @@ namespace CaféPourLaVie.Controllers
 
         //===== CREATE PRODUCT=====
         // GET: Product/Create
-        public async Task<IActionResult> Create(Product product)
+        public async Task<IActionResult> Create()
         {
-            ViewBag.CategoryId = new SelectList(_context.Categories,
-                                                "CategoryId",
-                                                "CategoryName");
+            ViewBag.CategoryId = new SelectList(_context.Categories, "CategoryId", "CategoryName");
 
             return View();
         }
+
         // POST: Product/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product product,IFormFile imageFile)
         {
+            // Check if the product name already exists in the database (case-insensitive)
+            //var inputName = product.ProductName.Trim().ToLower();
+
+            if (await _context.Products.AnyAsync(p => p.ProductName == product.ProductName))
+            {
+                ViewData["Error"] = "Không thể thêm sản phẩm. Tên sản phẩm này đã tồn tại.";
+
+                ViewBag.CategoryId = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
+
+                return View(product);
+            }
+
+            ModelState.Remove("Image");
+            ModelState.Remove("Category");
+            ModelState.Remove("CreatedDate"); 
+            ModelState.Remove("Status");
+
+            // Check if the model state is valid
+            if (!ModelState.IsValid)
+            {
+                ViewBag.CategoryId = new SelectList(_context.Categories,
+                                                    "CategoryId",
+                                                    "CategoryName",
+                                                    product.CategoryId);
+
+                return View(product);
+            }
+
+            product.CreatedDate = DateTime.Now;
+            product.Status = true;
+
             if (imageFile != null)
             {
-                string fileName = Guid.NewGuid().ToString()
-                                  + Path.GetExtension(imageFile.FileName);
-
+                string fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
 
                 string path = Path.Combine(
                     Directory.GetCurrentDirectory(),
@@ -106,6 +132,8 @@ namespace CaféPourLaVie.Controllers
 
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
+
+            TempData["Success"] = "Thêm sản phẩm thành công.";
 
             return RedirectToAction(nameof(Index));
         }
@@ -158,7 +186,7 @@ namespace CaféPourLaVie.Controllers
             }
             else
             {
-                // Giữ lại ảnh cũ (Tối ưu hóa: Chỉ lấy đúng cột Image từ Database)
+                // Keep the old image if no new image is uploaded
                 var oldImage = await _context.Products
                     .AsNoTracking()
                     .Where(p => p.ProductId == id)

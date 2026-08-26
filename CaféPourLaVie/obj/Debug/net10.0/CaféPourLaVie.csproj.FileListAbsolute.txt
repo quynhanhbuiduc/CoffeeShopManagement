@@ -231,3 +231,4 @@ C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\obj\Debug\net10.0\Caf�
 C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\obj\Debug\net10.0\ref\CaféPourLaVie.dll
 C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\obj\Debug\net10.0\compressed\09z5p0dhtt-{0}-j8ov5pca5j-j8ov5pca5j.gz
+C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\obj\Debug\net10.0\CaféPourLaVie.sourcelink.json

@@ -37,8 +37,9 @@ namespace CaféPourLaVie.Services
         // Create Async method to add a new employee
         public async Task<ServiceResult> CreateAsync(EmployeeCreateViewModel model)
         {
+            
             bool exists = await _context.Accounts
-                .AnyAsync(a => a.Username == model.Username);
+                .AnyAsync(a => a.Username.ToLower() == model.Username.Trim().ToLower());
 
             if (exists)
             {
@@ -99,7 +100,7 @@ namespace CaféPourLaVie.Services
             // Check if the username already exists for another account
             bool exists = await _context.Accounts
                 .AnyAsync(a =>
-                    a.Username == model.Username &&
+                    a.Username.ToLower() == model.Username.Trim().ToLower() &&
                     a.AccountId != model.AccountId);
 
             if (exists)

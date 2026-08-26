@@ -6,7 +6,21 @@
 
 <h2>Thêm sản phẩm</h2>
 
-<form asp-action="Create" enctype="multipart/form-data">
+<div asp-validation-summary="All"
+     class="text-danger">
+</div>
+
+@if (ViewData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <strong>Không thể thêm sản phẩm!</strong>
+        <br />
+        @ViewData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
 
     <div class="mb-3">
 
@@ -14,6 +28,7 @@
 
         <input asp-for="ProductName" class="form-control" />
 
+        <span asp-validation-for="ProductName" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
@@ -29,17 +44,19 @@
 
         <label asp-for="Price"></label>
 
-        <input asp-for="Price"
-               class="form-control" />
+        <input asp-for="Price" type="number"
+               min="0" step="1000" class="form-control" />
 
+        <span asp-validation-for="Price" class="text-danger"></span>
+    
     </div>
 
     <div class="mb-3">
 
         <label asp-for="Quantity"></label>
 
-        <input asp-for="Quantity"
-               class="form-control" />
+        <input asp-for="Quantity" type="number"
+               min="0" class="form-control" />
 
     </div>
 
@@ -67,20 +84,12 @@
 
     </div>
 
-    <div class="mb-3">
-
-        <label asp-for="Status"></label>
-
-        <input asp-for="Status" />
-
-    </div>
-
-    <div class="mb-3">
+    <!-- <div class="mb-3">
 
         <label asp-for="CreatedDate"></label>
 
         <input asp-for="CreatedDate" type="date" class="form-control" />
-     </div>
+     </div> -->
 
     <button class="btn btn-success">
         Lưu
@@ -92,3 +101,4 @@
     </a>
 
 </form>
+
