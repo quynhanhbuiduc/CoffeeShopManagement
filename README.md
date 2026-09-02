@@ -111,12 +111,12 @@ General Use Case Diagram:
 
 ## Installation
 ### Requirements
-- .NET 8 SDK
+- .NET 10 SDK
 - SQL Server
-- Visual Studio 2022
+- Visual Studio 2026
 
 ### Steps
-1. Clone repository: git clone https://github.com/username/project.git
+1. Clone repository: git clone https://github.com/quynhanhbuiduc/CoffeeShopManagement.git
 
 2. Update database connection string: appsettings.json
 
