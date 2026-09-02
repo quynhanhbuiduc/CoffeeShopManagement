@@ -17,7 +17,6 @@ Hệ thống hỗ trợ nhân viên thực hiện bán hàng tại quầy (POS),
 
 
 ## Features
-
 ### Authentication
 - Đăng nhập hệ thống.
 - Phân quyền Admin và Employee.
@@ -43,7 +42,6 @@ Hệ thống hỗ trợ nhân viên thực hiện bán hàng tại quầy (POS),
 
 
 ## Technologies
-
 ### Backend
 - ASP.NET Core MVC
 - Entity Framework Core
@@ -107,9 +105,11 @@ Main use cases:
 - Manage inventory
 - View reports
 
+General Use Case Diagram:
+<img width="1239" height="1152" alt="newgeneralusecase" src="https://github.com/user-attachments/assets/acfbfa9b-b927-4277-b12c-b49ce3fabc91" />
+
 
 ## Installation
-
 ### Requirements
 - .NET 8 SDK
 - SQL Server
