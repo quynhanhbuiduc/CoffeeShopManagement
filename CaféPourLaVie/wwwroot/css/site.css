@@ -23,8 +23,9 @@ body {
     bottom: 0;
     width: 250px;
     min-width: 250px;
-    background: #20252b;
-    color: white;
+    background: #644837;
+    border-right: 1px solid #2d2420;
+    color: #f7ede2;
     padding: 22px 14px;
     overflow-y: auto;
     z-index: 1000;
@@ -40,17 +41,22 @@ body {
     font-size: 20px;
     font-weight: 600;
     white-space: nowrap;
+    color: #fcf8f2;
 }
 
 .brand-icon {
     width: 34px;
     height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f0e4d0;
+    background: #e8d7c3;
     border-radius: 50%;
     font-size: 19px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -76,12 +82,12 @@ body {
     width: 100%;
     min-height: 52px;
     padding: 0 16px;
-    border-radius: 10px;
-    color: #e7e9ec;
+    border-radius: 9px;
+    color: #f1ede9;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15.5px;
     font-weight: 500;
-    transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease, padding-left 0.18s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, padding-left 0.2s ease;
 }
 
 
@@ -91,31 +97,39 @@ body {
     min-width: 25px;
     text-align: center;
     font-size: 17px;
+    opacity: 0.85;
 }
 
 
 /* Hover */
 .sidebar-link:hover {
-    color: white;
-    background-color: #30363d;
-    padding-left: 20px;
+    color: #ffffff;
+    background-color: #825841; 
+    padding-left: 19px;
     transform: translateX(2px);
 }
+
+    .sidebar-link:hover .menu-icon {
+        opacity: 1;
+    }
 
 
 /* Active */
 .sidebar-link.active {
     color: #ffffff;
-    background-color: #63552f;
+    background: linear-gradient(90deg, #533a29 0%, #3e2a1e 100%);
     font-weight: 600;
-    box-shadow: inset 3px 0 0 #f4c95d;
+    box-shadow: inset 3.5px 0 0 #d4a373, 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
+    .sidebar-link.active .menu-icon {
+        opacity: 1;
+    }
 
     /* Active + hover */
     .sidebar-link.active:hover {
-        background-color: #716238;
-        padding-left: 20px;
+        background: linear-gradient(90deg, #5f422f 0%, #463022 100%);
+        padding-left: 19px;
     }
 
 
