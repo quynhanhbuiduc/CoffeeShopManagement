@@ -15,6 +15,11 @@ namespace CaféPourLaVie.Controllers
         {
             _context = context;
         }
+
+
+        // =========================
+        // INDEX
+        // =========================
         // GET: Product
         public async Task<IActionResult> Index(int? categoryId, string? keyword, int page = 1)
         {
@@ -56,16 +61,18 @@ namespace CaféPourLaVie.Controllers
             ViewBag.CurrentPage = page;
 
             // Check if the requested page is valid
-            var result = await products
-                .OrderBy(p => p.ProductId) // Order by ProductId to ensure consistent ordering
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
+            var result = await products.OrderBy(p => p.ProductId) 
+                                       .Skip((page - 1) * pageSize)
+                                       .Take(pageSize)
+                                       .ToListAsync();
 
             return View(result);
         }
 
-        //===== CREATE PRODUCT=====
+
+        // =========================
+        // CREATE PRODUCT
+        // =========================
         // GET: Product/Create
         public async Task<IActionResult> Create()
         {
@@ -73,7 +80,6 @@ namespace CaféPourLaVie.Controllers
 
             return View();
         }
-
         // POST: Product/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -81,7 +87,6 @@ namespace CaféPourLaVie.Controllers
         {
             // Check if the product name already exists in the database (case-insensitive)
             //var inputName = product.ProductName.Trim().ToLower();
-
             if (await _context.Products.AnyAsync(p => p.ProductName == product.ProductName))
             {
                 ViewData["Error"] = "Không thể thêm sản phẩm. Tên sản phẩm này đã tồn tại.";
@@ -91,10 +96,12 @@ namespace CaféPourLaVie.Controllers
                 return View(product);
             }
 
+
             ModelState.Remove("Image");
             ModelState.Remove("Category");
             ModelState.Remove("CreatedDate"); 
             ModelState.Remove("Status");
+
 
             // Check if the model state is valid
             if (!ModelState.IsValid)
@@ -107,18 +114,18 @@ namespace CaféPourLaVie.Controllers
                 return View(product);
             }
 
+
             product.CreatedDate = DateTime.Now;
             product.Status = true;
+
 
             if (imageFile != null)
             {
                 string fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
 
-                string path = Path.Combine(
-                    Directory.GetCurrentDirectory(),
-                    "wwwroot/images/products",
-                    fileName
-                );
+                string path = Path.Combine(Directory.GetCurrentDirectory(),
+                                           "wwwroot/images/products",
+                                           fileName);
 
 
                 using (var stream = new FileStream(path, FileMode.Create))
@@ -138,7 +145,9 @@ namespace CaféPourLaVie.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //===== EDIT PRODUCT=====
+        // =========================
+        // EDIT PRODUCT
+        // =========================
         // GET: Product/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -150,11 +159,12 @@ namespace CaféPourLaVie.Controllers
             if (product == null)
                 return NotFound();
 
-            ViewBag.CategoryId = new SelectList(
-                _context.Categories,
-                "CategoryId",
-                "CategoryName",
-                product.CategoryId);
+
+            ViewBag.CategoryId = new SelectList(_context.Categories,
+                                                "CategoryId",
+                                                "CategoryName",
+                                                product.CategoryId);
+
 
             return View(product);
         }
@@ -172,10 +182,9 @@ namespace CaféPourLaVie.Controllers
                 string fileName = Guid.NewGuid().ToString()
                                 + Path.GetExtension(imageFile.FileName);
 
-                string path = Path.Combine(
-                    Directory.GetCurrentDirectory(),
-                    "wwwroot/images/products",
-                    fileName);
+                string path = Path.Combine(Directory.GetCurrentDirectory(),
+                                           "wwwroot/images/products",
+                                           fileName);
 
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
@@ -187,11 +196,10 @@ namespace CaféPourLaVie.Controllers
             else
             {
                 // Keep the old image if no new image is uploaded
-                var oldImage = await _context.Products
-                    .AsNoTracking()
-                    .Where(p => p.ProductId == id)
-                    .Select(p => p.Image)
-                    .FirstOrDefaultAsync();
+                var oldImage = await _context.Products.AsNoTracking()
+                                                      .Where(p => p.ProductId == id)
+                                                      .Select(p => p.Image)
+                                                      .FirstOrDefaultAsync();
 
                 if (oldImage != null)
                 {
@@ -205,7 +213,10 @@ namespace CaféPourLaVie.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //===== DELETE PRODUCT=====
+
+        // =========================
+        // DELETE PRODUCT
+        // =========================
         // GET: Product/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

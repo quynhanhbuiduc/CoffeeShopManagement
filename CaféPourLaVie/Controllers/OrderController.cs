@@ -21,17 +21,24 @@ namespace CaféPourLaVie.Controllers
         }
 
 
+        // =========================
+        // INDEX
+        // =========================
         // GET: Order
         public async Task<IActionResult> Index()
         {
             var orders = await _context.Orders
-                .Include(o => o.Account)
-                .OrderByDescending(o => o.OrderDate)
-                .ToListAsync();
+                                       .Include(o => o.Account)
+                                       .OrderByDescending(o => o.OrderDate)
+                                       .ToListAsync();
 
             return View(orders);
         }
 
+
+        // =========================
+        // GET DETAILS
+        // =========================
         // GET: Order/Details/5
         public async Task<IActionResult> Details(int id)
         {
@@ -54,6 +61,9 @@ namespace CaféPourLaVie.Controllers
         }
 
 
+        // =========================
+        // CANCEL ORDER
+        // =========================
         // POST: Order/Cancel/5
         [HttpPost] // This action is only accessible via POST requests
         [ValidateAntiForgeryToken] // This attribute helps prevent CSRF attacks

@@ -23,7 +23,9 @@ namespace CaféPourLaVie.Controllers
         }
 
 
-
+        // =========================
+        // CREATE EMPLOYEE
+        // =========================
         // GET: Employee/Create
         public IActionResult Create()
         {
@@ -49,6 +51,9 @@ namespace CaféPourLaVie.Controllers
         }
 
 
+        // =========================
+        // EDIT EMPLOYEE
+        // =========================
         // GET: Employee/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
@@ -60,6 +65,7 @@ namespace CaféPourLaVie.Controllers
 
             return View(model);
         }
+        // POST: Employee/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(EmployeeEditViewModel model)
@@ -79,6 +85,9 @@ namespace CaféPourLaVie.Controllers
         }
 
 
+        // =========================
+        // TOGGLE STATUS
+        // =========================
         // GET: Employee/ToggleStatus/5
         public async Task<IActionResult> ToggleStatus(int id)
         {
@@ -90,6 +99,9 @@ namespace CaféPourLaVie.Controllers
         }
 
 
+        // =========================
+        // RESET PASSWORD
+        // =========================
         // GET: Employee/ResetPassword/5
         public async Task<IActionResult> ResetPassword(int id)
         {

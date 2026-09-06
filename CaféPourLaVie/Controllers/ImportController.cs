@@ -15,9 +15,7 @@ namespace CaféPourLaVie.Controllers
         private readonly ApplicationDbContext _context;
 
 
-        public ImportController(
-            IImportService importService,
-            ApplicationDbContext context)
+        public ImportController(IImportService importService, ApplicationDbContext context)
         {
             _importService = importService;
             _context = context;
@@ -29,8 +27,7 @@ namespace CaféPourLaVie.Controllers
         // =========================
         public async Task<IActionResult> Index()
         {
-            var imports =
-                await _importService.GetAllAsync();
+            var imports = await _importService.GetAllAsync();
 
             return View(imports);
         }
@@ -44,9 +41,9 @@ namespace CaféPourLaVie.Controllers
         {
             ViewBag.Products =
                 await _context.Products
-                    .Where(p => p.Status)
-                    .OrderBy(p => p.ProductName)
-                    .ToListAsync();
+                              .Where(p => p.Status)
+                              .OrderBy(p => p.ProductName)
+                              .ToListAsync();
 
             return View();
         }
@@ -57,13 +54,11 @@ namespace CaféPourLaVie.Controllers
         // =========================
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(
-            List<ImportDetail> details)
+        public async Task<IActionResult> Create(List<ImportDetail> details)
         {
             try
             {
-                if (details == null ||
-                    details.Count == 0)
+                if (details == null || details.Count == 0)
                 {
                     TempData["Error"] = "Phiếu nhập phải có ít nhất một sản phẩm.";
 
@@ -75,26 +70,16 @@ namespace CaféPourLaVie.Controllers
 
 
                 if (accountIdClaim == null ||
-                    !int.TryParse(
-                        accountIdClaim.Value,
-                        out int accountId))
+                    !int.TryParse( accountIdClaim.Value, out int accountId))
                 {
                     return Unauthorized();
                 }
 
 
-                int importReceiptId =
-                    await _importService.CreateAsync(
-                        accountId,
-                        details);
+                int importReceiptId = await _importService.CreateAsync(accountId, details);
 
 
-                return RedirectToAction(
-                    nameof(Details),
-                    new
-                    {
-                        id = importReceiptId
-                    });
+                return RedirectToAction(nameof(Details), new{id = importReceiptId});
             }
             catch (Exception ex)
             {
@@ -111,7 +96,6 @@ namespace CaféPourLaVie.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var import = await _importService.GetByIdAsync(id);
-
 
             if (import == null)
             {

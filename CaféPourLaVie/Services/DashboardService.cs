@@ -16,15 +16,14 @@ namespace CaféPourLaVie.Services
             _context = context;
         }
 
+
         public async Task<DashboardViewModel> GetDashboardAsync(ClaimsPrincipal user)
         {
             var today = DateTime.Today;
             var tomorrow = today.AddDays(1);
 
 
-            // =========================
-            // TODAY ORDERS
-            // =========================
+            // ============== TODAY ORDERS ===========
             var todayOrders = _context.Orders
                 .Where(o =>
                     o.OrderDate >= today &&
@@ -38,15 +37,11 @@ namespace CaféPourLaVie.Services
                 .CountAsync();
 
 
-            // =========================
-            // TOTAL PRODUCTS
-            // =========================
+            // =============== TOTAL PRODUCTS ============
             var totalProducts = await _context.Products.CountAsync();
 
 
-            // =========================
-            // LOW STOCK
-            // =========================
+            // ============= LOW STOCK PRODUCTS ============
             var lowStockQuery = _context.Products.Where(p => p.Quantity < 10);
 
             var lowStockCount = await lowStockQuery.CountAsync();
@@ -57,9 +52,7 @@ namespace CaféPourLaVie.Services
                 .ToListAsync();
 
 
-            // =========================
-            // TOP PRODUCTS
-            // =========================
+            // ============== TOP PRODUCTS ============
             var topProducts = await _context.OrderDetails
                 .Where(od =>
                     od.Order.Status == OrderStatus.Completed &&
@@ -81,9 +74,7 @@ namespace CaféPourLaVie.Services
                 .ToListAsync();
 
 
-            // =========================
-            // RECENT ORDERS
-            // =========================
+            // ============== RECENT ORDERS ============
             var recentOrders = await _context.Orders
                 .Include(o => o.Account)
                 .Include(o => o.PaymentMethod)
@@ -92,9 +83,7 @@ namespace CaféPourLaVie.Services
                 .ToListAsync();
 
 
-            // =========================
-            // RETURN DASHBOARD
-            // =========================
+            // ============== RETURN DASHBOARD VIEW MODEL ============
             return new DashboardViewModel
             {
                 TodayRevenue = todayRevenue,

@@ -6,13 +6,18 @@ namespace CaféPourLaVie.Models
     {
         public int ProductId { get; set; }
 
+
         [Required(ErrorMessage = "Vui lòng nhập tên sản phẩm.")]
+        [StringLength(50, ErrorMessage = "Tên sản phẩm không được vượt quá 50 ký tự.")]
         public string ProductName { get; set; }
 
+        [MaxLength(100)]
         public string? Description { get; set; }
+
 
         [Range(0, double.MaxValue, ErrorMessage = "Giá sản phẩm không được âm.")]
         public decimal Price { get; set; }
+
 
         [Range(0, int.MaxValue, ErrorMessage = "Số lượng không được âm.")]
         public int Quantity { get; set; }
@@ -20,6 +25,7 @@ namespace CaféPourLaVie.Models
         public string? Image { get; set; }
 
         public bool Status { get; set; }
+
 
         public DateTime CreatedDate { get; set; }
 

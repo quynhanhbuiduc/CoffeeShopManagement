@@ -22,9 +22,9 @@ namespace CaféPourLaVie.Services
         public async Task<List<ImportReceipt>> GetAllAsync()
         {
             return await _context.ImportReceipts
-                .Include(i => i.Account)
-                .OrderByDescending(i => i.ImportDate)
-                .ToListAsync();
+                                 .Include(i => i.Account)
+                                 .OrderByDescending(i => i.ImportDate)
+                                 .ToListAsync();
         }
 
 
@@ -33,24 +33,17 @@ namespace CaféPourLaVie.Services
         // =========================
         public async Task<ImportReceipt?> GetByIdAsync(int id)
         {
-            return await _context.ImportReceipts
-
-                .Include(i => i.Account)
-
-                .Include(i => i.ImportDetails)
-                    .ThenInclude(d => d.Product)
-
-                .FirstOrDefaultAsync(i =>
-                    i.ImportReceiptId == id);
+            return await _context.ImportReceipts.Include(i => i.Account)
+                                                .Include(i => i.ImportDetails)
+                                                .ThenInclude(d => d.Product)
+                                                .FirstOrDefaultAsync(i => i.ImportReceiptId == id);
         }
 
 
         // =========================
         // CREATE
         // =========================
-        public async Task<int> CreateAsync(
-            int accountId,
-            List<ImportDetail> details)
+        public async Task<int> CreateAsync(int accountId, List<ImportDetail> details)
         {
             if (details == null || details.Count == 0)
             {
@@ -88,7 +81,7 @@ namespace CaféPourLaVie.Services
 
 
                 var product = await _context.Products
-                    .FirstOrDefaultAsync(p =>p.ProductId == detail.ProductId);
+                                            .FirstOrDefaultAsync(p =>p.ProductId == detail.ProductId);
 
 
                 if (product == null)
@@ -124,10 +117,8 @@ namespace CaféPourLaVie.Services
         public async Task ApproveAsync(int id)
         {
             var receipt = await _context.ImportReceipts
-
-                .Include(i => i.ImportDetails)
-
-                .FirstOrDefaultAsync(i => i.ImportReceiptId == id);
+                                        .Include(i => i.ImportDetails)
+                                        .FirstOrDefaultAsync(i => i.ImportReceiptId == id);
 
 
             if (receipt == null)
@@ -149,8 +140,7 @@ namespace CaféPourLaVie.Services
                 foreach (var detail in receipt.ImportDetails)
                 {
                     var product = await _context.Products
-                        .FirstOrDefaultAsync(
-                            p => p.ProductId == detail.ProductId);
+                                                .FirstOrDefaultAsync( p => p.ProductId == detail.ProductId);
 
                     if (product == null)
                     {
@@ -162,15 +152,14 @@ namespace CaféPourLaVie.Services
                     product.Quantity += detail.Quantity;
 
                     // Add an inventory transaction record for this imports
-                    _context.InventoryTransactions.Add(
-                        new InventoryTransaction
-                        {
-                            ProductId = product.ProductId,
-                            TransactionDate = DateTime.Now,
-                            Quantity = detail.Quantity,
-                            Type = InventoryTransactionType.Import,
-                            Note = $"Nhập hàng - Phiếu #{receipt.ImportReceiptId}"
-                        });
+                    _context.InventoryTransactions.Add(new InventoryTransaction
+                                                        {
+                                                            ProductId = product.ProductId,
+                                                            TransactionDate = DateTime.Now,
+                                                            Quantity = detail.Quantity,
+                                                            Type = InventoryTransactionType.Import,
+                                                            Note = $"Nhập hàng - Phiếu #{receipt.ImportReceiptId}"
+                                                        });
                 }
 
 
@@ -195,8 +184,7 @@ namespace CaféPourLaVie.Services
         public async Task RejectAsync(int id)
         {
             var receipt = await _context.ImportReceipts
-                .FirstOrDefaultAsync(i =>
-                    i.ImportReceiptId == id);
+                                        .FirstOrDefaultAsync(i => i.ImportReceiptId == id);
 
 
             if (receipt == null)

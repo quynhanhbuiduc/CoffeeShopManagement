@@ -37,10 +37,23 @@ namespace CaféPourLaVie.Data
 
 
 
-
+        // Configure the relationship between database tables
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configure the one-to-one relationship between Employee and Account
+            base.OnModelCreating(modelBuilder);
+
+
+            //=========== UNIQUE CONSTRAINTS ===========
+            modelBuilder.Entity<Account>()
+                        .HasIndex(a => a.Username)
+                        .IsUnique();
+
+            modelBuilder.Entity<Employee>()
+                        .HasIndex(e => e.Phone)
+                        .IsUnique();
+
+
+            //=========== RELATIONSHIPS ===========
             modelBuilder.Entity<Employee>()
                         .HasOne(e => e.Account)
                         .WithOne(a => a.Employee)
@@ -68,7 +81,7 @@ namespace CaféPourLaVie.Data
                         .OnDelete(DeleteBehavior.Restrict);
 
 
-            // Configure the one-to-many relationship between Category and Product
+            //=========== SEED DATA ===========
             modelBuilder.Entity<PaymentMethod>()
                 .HasData(
                     new PaymentMethod
@@ -89,8 +102,6 @@ namespace CaféPourLaVie.Data
                         MethodName = "Momo"
                     }
                 );
-
-            base.OnModelCreating(modelBuilder);
         }
     }
 }

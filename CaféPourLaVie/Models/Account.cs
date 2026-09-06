@@ -1,11 +1,17 @@
-﻿namespace CaféPourLaVie.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CaféPourLaVie.Models
 {
     public class Account
     {
         public int AccountId { get; set; }
 
-        public string Username { get; set; }
 
+        [MaxLength(20)]
+        public string Username { get; set; }
+        
+
+        [MaxLength(20)]
         public string Password { get; set; }
 
         public string Role { get; set; }

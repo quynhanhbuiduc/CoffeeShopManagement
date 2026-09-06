@@ -15,6 +15,10 @@ namespace CaféPourLaVie.Controllers
             _context = context;
         }
 
+
+        // =========================
+        // LOGIN
+        // =========================
         // GET Account/Login
         public IActionResult Login()
         {
@@ -47,31 +51,19 @@ namespace CaféPourLaVie.Controllers
             // Create Claims
             var claims = new List<Claim>
             {
-                new Claim(
-                    ClaimTypes.Name,
-                    account.Username),
-
-                new Claim(
-                    ClaimTypes.Role,
-                    account.Role),
-
-                new Claim(
-                    "AccountId",
-                    account.AccountId.ToString())
+                new Claim(ClaimTypes.Name, account.Username),
+                new Claim(ClaimTypes.Role, account.Role),
+                new Claim("AccountId", account.AccountId.ToString())
             };
 
 
-            var identity = new ClaimsIdentity(
-                claims,
-                "CookieAuth");
+            var identity = new ClaimsIdentity(claims, "CookieAuth");
 
 
             var principal = new ClaimsPrincipal(identity);
 
 
-            await HttpContext.SignInAsync(
-                "CookieAuth",
-                principal);
+            await HttpContext.SignInAsync("CookieAuth", principal);
 
 
             if (account.Role == "Admin")
@@ -87,6 +79,10 @@ namespace CaféPourLaVie.Controllers
             return RedirectToAction("Login");
         }
 
+
+        // =========================
+        // LOGOUT
+        // =========================
         // GET Account/Logout
         public async Task<IActionResult> Logout()
         {
@@ -95,6 +91,10 @@ namespace CaféPourLaVie.Controllers
             return RedirectToAction("Login");
         }
 
+
+        //=========================
+        // ACCESS DENIED    
+        // =========================
         // GET Account/AccessDenied
         public IActionResult AccessDenied()
         {

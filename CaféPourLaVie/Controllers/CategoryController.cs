@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 namespace CaféPourLaVie.Controllers
 {
     [Authorize(Roles = "Admin")]
-
     public class CategoryController : Controller
     {
         // Dependency injection of the ApplicationDbContext to access the database
@@ -19,6 +18,7 @@ namespace CaféPourLaVie.Controllers
             _context = context;
         }
 
+
         // GET: Category
         public async Task<IActionResult> Index()
         {
@@ -27,13 +27,14 @@ namespace CaféPourLaVie.Controllers
             return View(categories);
         }
 
-        //===== CREATE CATEGORY=====
+        // =========================
+        // CREATE CATEGORY
+        // =========================
         // GET: Category/Create
         public IActionResult Create()
         {
             return View();
         }
-
         // POST: Category/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -50,6 +51,7 @@ namespace CaféPourLaVie.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(category); // INSERT INTO Category VALUES(...)
+
                 await _context.SaveChangesAsync(); // Save changes to the database
 
                 return RedirectToAction(nameof(Index));
@@ -59,7 +61,9 @@ namespace CaféPourLaVie.Controllers
             return View(category);
         }
     
-        //===== EDIT CATEGORY=====
+        // =========================
+        // EDIT CATEGORY
+        // =========================
         // GET: Category/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -77,19 +81,15 @@ namespace CaféPourLaVie.Controllers
 
             return View(category);
         }
-
         // POST: Category/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(
-            int id,
-            Category category)
+        public async Task<IActionResult> Edit(int id, Category category)
         {
             if (id != category.CategoryId)
             {
                 return NotFound();
             }
-
 
             if (ModelState.IsValid)
             {
@@ -100,11 +100,13 @@ namespace CaféPourLaVie.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-
             return View(category);
         }
 
-        //===== DELETE CATEGORY=====
+
+        // =========================
+        // DELETE CATEGORY
+        // =========================
         // GET: Category/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -113,8 +115,7 @@ namespace CaféPourLaVie.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
-                .FirstOrDefaultAsync(m => m.CategoryId == id);
+            var category = await _context.Categories.FirstOrDefaultAsync(m => m.CategoryId == id); 
 
             if (category == null)
             {
@@ -123,7 +124,6 @@ namespace CaféPourLaVie.Controllers
 
             return View(category);
         }
-
         // POST: Category/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

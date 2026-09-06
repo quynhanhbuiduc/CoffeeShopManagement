@@ -14,6 +14,10 @@ namespace CaféPourLaVie.Controllers
             _inventoryService = inventoryService;
         }
 
+
+        // =========================
+        // INDEX
+        // =========================
         // GET: Inventory
         public async Task<IActionResult> Index(string? searchString)
         {
@@ -25,6 +29,10 @@ namespace CaféPourLaVie.Controllers
             return View(inventory);
         }
 
+
+        // =========================
+        // TRANSACTIONS
+        // =========================
         // GET: Inventory/Transactions
         public async Task<IActionResult> Transactions()
         {

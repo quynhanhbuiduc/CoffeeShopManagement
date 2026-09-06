@@ -1,12 +1,109 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Migrations\\20260906165321_UpdateLengthAndRequired.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Caf\u00E9PourLaVie\\Migrations\\20260906165321_UpdateLengthAndRequired.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\models\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\models\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20260906165321_UpdateLengthAndRequired.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Migrations\\20260906165321_UpdateLengthAndRequired.cs",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Migrations\\20260906165321_UpdateLengthAndRequired.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Migrations\\20260906165321_UpdateLengthAndRequired.cs",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Migrations\\20260906165321_UpdateLengthAndRequired.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T16:53:21.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PaymentMethod.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\PaymentMethod.cs",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Models\\PaymentMethod.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\PaymentMethod.cs",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Models\\PaymentMethod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T15:57:27.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\Product.cs",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Models\\Product.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA3wB0AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T15:27:50.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Models\\Account.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\Account.cs",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Models\\Account.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T14:03:09.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAswF8AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T13:47:17.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

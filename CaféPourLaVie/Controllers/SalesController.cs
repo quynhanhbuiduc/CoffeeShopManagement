@@ -18,25 +18,27 @@ namespace CaféPourLaVie.Controllers
 
         private readonly IOrderService _orderService;
 
-        public SalesController(
-            ApplicationDbContext context,
-            CartService cartService,
-            IOrderService orderService)
+        public SalesController(ApplicationDbContext context,
+                               CartService cartService,
+                               IOrderService orderService)
         {
             _context = context;
             _cartService = cartService;
             _orderService = orderService;
         }
 
+
+        // =========================
+        // INDEX
+        // =========================
         // GET: Sales
         public async Task<IActionResult> Index( int? categoryId, string? searchString)
         {
-            ViewBag.Categories = await _context.Categories
-                .ToListAsync();
+            ViewBag.Categories = await _context.Categories.ToListAsync();
 
             var products = _context.Products
-                .Include(p => p.Category)
-                .Where(p => p.Status);
+                                   .Include(p => p.Category)
+                                   .Where(p => p.Status);
 
             if (categoryId != null)
             {
@@ -54,11 +56,26 @@ namespace CaféPourLaVie.Controllers
             return View(await products.ToListAsync());
         }
 
+
+        // =========================
+        // CART
+        // =========================
+        // GET: Sales/Cart
+        public IActionResult Cart()
+        {
+            var cart = _cartService.GetCart();
+
+            return View(cart);
+        }
+
+
+        // =========================
+        // ADD TO CART
+        // =========================
         // POST: Sales/AddToCart
         public async Task<IActionResult> AddToCart(int id, int? categoryId)
         {
-            var product = await _context.Products
-                .FirstOrDefaultAsync(p => p.ProductId == id);
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductId == id);
 
 
             if (product == null)
@@ -70,20 +87,14 @@ namespace CaféPourLaVie.Controllers
             _cartService.AddToCart(product);
 
 
-            return RedirectToAction(
-                "Index",
-                new { categoryId = categoryId }
+            return RedirectToAction("Index", new { categoryId = categoryId }
             );
         }
 
-        // GET: Sales/Cart
-        public IActionResult Cart()
-        {
-            var cart = _cartService.GetCart();
 
-            return View(cart);
-        }
-
+        // =========================
+        // REMOVE FROM CART
+        // =========================
         // POST: Sales/RemoveFromCart
         public IActionResult RemoveFromCart(int id)
         {
@@ -105,6 +116,9 @@ namespace CaféPourLaVie.Controllers
         }
 
 
+        // =========================
+        // UPDATE QUANTITY
+        // =========================
         // GET: Sales/UpdateQuantity
         public IActionResult Increase(int id)
         {
@@ -113,6 +127,7 @@ namespace CaféPourLaVie.Controllers
 
             // 1. Take the product from the database to check its quantity
             var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
+
 
             // 2. Check if the item exists in the cart and the product exists in the database
             if (item != null && product != null)
@@ -123,6 +138,7 @@ namespace CaféPourLaVie.Controllers
                     _cartService.UpdateQuantity(id, item.Quantity + 1);
                 }
             }
+
 
             return RedirectToAction("Cart");
         }
@@ -140,6 +156,10 @@ namespace CaféPourLaVie.Controllers
             return RedirectToAction("Cart");
         }
 
+
+        // =========================
+        // CHECKOUT
+        // =========================
         // GET: Sales/Checkout
         public async Task<IActionResult> Checkout()
         {

@@ -14,11 +14,11 @@ namespace CaféPourLaVie.Services
 
 
 
-        private ISession? Session => _httpContextAccessor
-                                    .HttpContext?
-                                    .Session;
+        private ISession? Session => _httpContextAccessor.HttpContext?
+                                                         .Session;
 
 
+        /// Get the current cart from the session. If the cart does not exist, return an empty list.
         public List<CartItem> GetCart()
         {
             var json = Session?.GetString("Cart");
@@ -30,17 +30,18 @@ namespace CaféPourLaVie.Services
         }
 
 
+        // Save the current cart to the session.
         public void SaveCart(List<CartItem> cart)
         {
 
-            Session?.SetString(
-                "Cart",
-                JsonSerializer.Serialize(cart)
-            );
+            Session?.SetString("Cart",JsonSerializer.Serialize(cart));
 
         }
 
 
+        // Add a product to the cart.
+        // If the product is already in the cart, increase the quantity by 1.
+        // If the product is not in the cart, add it with a quantity of 1.
         public void AddToCart(Product product)
         {
 
@@ -75,6 +76,8 @@ namespace CaféPourLaVie.Services
             SaveCart(cart);
         }
 
+
+        // Remove a product from the cart.
         public void RemoveFromCart(int productId)
         {
             var cart = GetCart();
@@ -92,12 +95,14 @@ namespace CaféPourLaVie.Services
         }
 
 
+        // Get the total price of the cart.
         public decimal GetTotal()
         {
             return GetCart().Sum(x => x.SubTotal);
         }
 
 
+        // Update the quantity of a product in the cart.
         public void UpdateQuantity(int productId, int quantity)
         {
             var cart = GetCart();
@@ -120,6 +125,7 @@ namespace CaféPourLaVie.Services
         }
 
 
+        // Clear the cart.
         public void ClearCart()
         {
             Session?.Remove("Cart");

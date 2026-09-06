@@ -18,7 +18,6 @@ namespace CaféPourLaVie.Models
         public Account Account { get; set; }
 
 
-        public ICollection<ImportDetail> ImportDetails { get; set; }
-            = new List<ImportDetail>();
+        public ICollection<ImportDetail> ImportDetails { get; set; } = new List<ImportDetail>();
     }
 }

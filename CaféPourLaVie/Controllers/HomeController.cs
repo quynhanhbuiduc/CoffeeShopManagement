@@ -14,6 +14,7 @@ namespace CaféPourLaVie.Controllers
             _dashboardService = dashboardService;
         }
 
+
         // GET: Home
         public async Task<IActionResult> Index()
         {

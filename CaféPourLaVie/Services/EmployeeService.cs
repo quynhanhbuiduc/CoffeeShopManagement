@@ -4,12 +4,14 @@ using CaféPourLaVie.Services.Common;
 using CaféPourLaVie.Services.Interfaces;
 using CaféPourLaVie.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace CaféPourLaVie.Services
 {
     public class EmployeeService : IEmployeeService
     {
         private readonly ApplicationDbContext _context;
+        private readonly PasswordHasher<Account> _passwordHasher = new();
 
         public EmployeeService(ApplicationDbContext context)
         {
@@ -21,25 +23,61 @@ namespace CaféPourLaVie.Services
         public async Task<List<Employee>> GetAllAsync()
         {
             return await _context.Employees
-                .Include(e => e.Account)
-                .ToListAsync();
+                                 .Include(e => e.Account)
+                                 .ToListAsync();
         }
 
         // Get an employee by ID with their associated account
         public async Task<Employee?> GetByIdAsync(int id)
         {
             return await _context.Employees
-                .Include(e => e.Account)
-                .FirstOrDefaultAsync(e => e.EmployeeId == id);
+                                 .Include(e => e.Account)
+                                 .FirstOrDefaultAsync(e => e.EmployeeId == id);
         }
 
 
         // Create Async method to add a new employee
         public async Task<ServiceResult> CreateAsync(EmployeeCreateViewModel model)
         {
-            
+            DateTime today = DateTime.Today;
+            DateTime minHireDate = today.AddYears(-10);
+
+            if (model.HireDate > today)
+            {
+                return new ServiceResult
+                {
+                    Success = false,
+                    Message = "Ngày tuyển dụng không được lớn hơn ngày hiện tại."
+                };
+            }
+
+            if (model.HireDate < minHireDate)
+            {
+                return new ServiceResult
+                {
+                    Success = false,
+                    Message = "Ngày tuyển dụng không được quá 10 năm tính từ ngày hiện tại."
+                };
+            }
+
+
+            string phone = model.Phone.Trim();
+
+            bool phoneExists = await _context.Employees
+                                             .AnyAsync(e => e.Phone == phone);
+
+            if (phoneExists)
+            {
+                return new ServiceResult
+                {
+                    Success = false,
+                    Message = "Số điện thoại đã tồn tại."
+                };
+            }
+
+
             bool exists = await _context.Accounts
-                .AnyAsync(a => a.Username.ToLower() == model.Username.Trim().ToLower());
+                                        .AnyAsync(a => a.Username.ToLower() == model.Username.Trim().ToLower());
 
             if (exists)
             {
@@ -53,16 +91,17 @@ namespace CaféPourLaVie.Services
             var account = new Account
             {
                 Username = model.Username,
-                Password = model.Password,
                 Role = model.Role,
                 Status = true
             };
+
+            account.Password = _passwordHasher.HashPassword(account, model.Password);
 
             var employee = new Employee
             {
                 EmployeeName = model.EmployeeName,
                 Email = model.Email,
-                Phone = model.Phone,
+                Phone = phone,
                 Address = model.Address,
                 HireDate = model.HireDate,
 
@@ -85,8 +124,8 @@ namespace CaféPourLaVie.Services
         public async Task<ServiceResult> UpdateAsync(EmployeeEditViewModel model)
         {
             var employee = await _context.Employees
-                .Include(e => e.Account)
-                .FirstOrDefaultAsync(e => e.EmployeeId == model.EmployeeId);
+                                         .Include(e => e.Account)
+                                         .FirstOrDefaultAsync(e => e.EmployeeId == model.EmployeeId);
 
             if (employee == null)
             {
@@ -99,9 +138,9 @@ namespace CaféPourLaVie.Services
 
             // Check if the username already exists for another account
             bool exists = await _context.Accounts
-                .AnyAsync(a =>
-                    a.Username.ToLower() == model.Username.Trim().ToLower() &&
-                    a.AccountId != model.AccountId);
+                                        .AnyAsync(a =>
+                                            a.Username.ToLower() == model.Username.Trim().ToLower() &&
+                                            a.AccountId != model.AccountId);
 
             if (exists)
             {
@@ -126,12 +165,14 @@ namespace CaféPourLaVie.Services
                 Message = "Cập nhật nhân viên thành công."
             };
         }
+
+
         // Get an employee edit view model by ID
         public async Task<EmployeeEditViewModel?> GetEditViewModelByIdAsync(int id)
         {
             var employee = await _context.Employees
-                .Include(e => e.Account)
-                .FirstOrDefaultAsync(e => e.EmployeeId == id);
+                                         .Include(e => e.Account)
+                                         .FirstOrDefaultAsync(e => e.EmployeeId == id);
 
             if (employee == null)
                 return null;
@@ -157,8 +198,8 @@ namespace CaféPourLaVie.Services
         public async Task<ServiceResult> ToggleStatusAsync(int id)
         {
             var employee = await _context.Employees
-                .Include(e => e.Account)
-                .FirstOrDefaultAsync(e => e.EmployeeId == id);
+                                         .Include(e => e.Account)
+                                         .FirstOrDefaultAsync(e => e.EmployeeId == id);
 
             if (employee == null)
             {
@@ -187,8 +228,8 @@ namespace CaféPourLaVie.Services
         public async Task<ServiceResult> ResetPasswordAsync(int id)
         {
             var employee = await _context.Employees
-                .Include(e => e.Account)
-                .FirstOrDefaultAsync(e => e.EmployeeId == id);
+                                         .Include(e => e.Account)
+                                         .FirstOrDefaultAsync(e => e.EmployeeId == id);
 
             if (employee == null)
             {

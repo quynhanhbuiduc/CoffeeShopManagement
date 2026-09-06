@@ -19,17 +19,14 @@ namespace CaféPourLaVie.Controllers
             DateTime? fromDate,
             DateTime? toDate)
         {
-            // Nếu chưa chọn ngày thì mặc định xem tháng hiện tại
-            var from = fromDate ?? new DateTime(
-                DateTime.Today.Year,
-                DateTime.Today.Month,
-                1);
+            // If fromDate is null, set it to the first day of the current month. If toDate is null, set it to today.
+            var from = fromDate ?? new DateTime(DateTime.Today.Year,
+                                                DateTime.Today.Month,
+                                                1);
 
             var to = toDate ?? DateTime.Today;
 
-            var model = await _reportService.GetReportAsync(
-                from,
-                to);
+            var model = await _reportService.GetReportAsync(from, to);
 
             return View(model);
         }

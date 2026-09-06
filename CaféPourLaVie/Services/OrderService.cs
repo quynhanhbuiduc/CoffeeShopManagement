@@ -30,8 +30,7 @@ namespace CaféPourLaVie.Services
             }
 
             // Take the current user's account ID from claims
-            var accountIdClaim = user.Claims
-                .FirstOrDefault(c => c.Type == "AccountId");
+            var accountIdClaim = user.Claims.FirstOrDefault(c => c.Type == "AccountId");
 
             if (accountIdClaim == null)
             {
@@ -42,6 +41,7 @@ namespace CaféPourLaVie.Services
             {
                 throw new Exception("Thông tin tài khoản không hợp lệ.");
             }
+
 
             // Create a new order
             var order = new Order
@@ -57,43 +57,40 @@ namespace CaféPourLaVie.Services
             foreach (var item in cart)
             {
                 var product = await _context.Products
-                    .FirstOrDefaultAsync(
-                        p => p.ProductId == item.ProductId);
+                                            .FirstOrDefaultAsync(p => p.ProductId == item.ProductId);
 
                 if (product == null)
                 {
-                    throw new Exception(
-                        "Có sản phẩm không còn tồn tại.");
+                    throw new Exception("Có sản phẩm không còn tồn tại.");
                 }
 
                 if (product.Quantity < item.Quantity)
                 {
-                    throw new InvalidOperationException(
-                        $"Sản phẩm {product.ProductName} không đủ hàng.");
+                    throw new InvalidOperationException($"Sản phẩm {product.ProductName} không đủ hàng.");
                 }
 
-                order.OrderDetails.Add(
-                    new OrderDetail
-                    {
-                        ProductId = item.ProductId,
-                        Quantity = item.Quantity,
-                        Price = item.Price,
-                        SubTotal = item.SubTotal
-                    });
+                order.OrderDetails.Add(new OrderDetail
+                                        {
+                                            ProductId = item.ProductId,
+                                            Quantity = item.Quantity,
+                                            Price = item.Price,
+                                            SubTotal = item.SubTotal
+                                        });
+
 
                 // Update the product quantity in stock
                 product.Quantity -= item.Quantity;
 
+
                 // Save the inventory transaction for the sale
-                _context.InventoryTransactions.Add(
-                    new InventoryTransaction
-                    {
-                        ProductId = product.ProductId,
-                        TransactionDate = DateTime.Now,
-                        Quantity = item.Quantity,
-                        Type = InventoryTransactionType.Sale,
-                        Note = "Bán hàng"
-                    });
+                _context.InventoryTransactions.Add(new InventoryTransaction
+                                                    {
+                                                        ProductId = product.ProductId,
+                                                        TransactionDate = DateTime.Now,
+                                                        Quantity = item.Quantity,
+                                                        Type = InventoryTransactionType.Sale,
+                                                        Note = "Bán hàng"
+                                                    });
             }
 
 
@@ -124,8 +121,8 @@ namespace CaféPourLaVie.Services
         {
             // Retrieve the order and its details from the database
             var order = await _context.Orders
-                .Include(o => o.OrderDetails)
-                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+                                      .Include(o => o.OrderDetails)
+                                      .FirstOrDefaultAsync(o => o.OrderId == orderId);
 
 
             if (order == null)
@@ -139,8 +136,7 @@ namespace CaféPourLaVie.Services
             foreach (var detail in order.OrderDetails)
             {
                 var product = await _context.Products
-                    .FirstOrDefaultAsync(
-                        p => p.ProductId == detail.ProductId);
+                                            .FirstOrDefaultAsync(p => p.ProductId == detail.ProductId);
 
                 if (product != null)
                 {
@@ -148,15 +144,14 @@ namespace CaféPourLaVie.Services
                     product.Quantity += detail.Quantity;
 
                     // Save the inventory transaction for the cancellation
-                    _context.InventoryTransactions.Add(
-                        new InventoryTransaction
-                        {
-                            ProductId = product.ProductId,
-                            TransactionDate = DateTime.Now,
-                            Quantity = detail.Quantity,
-                            Type = InventoryTransactionType.CancelOrder,
-                            Note = $"Hoàn kho do hủy đơn #{order.OrderId}"
-                        });
+                    _context.InventoryTransactions.Add(new InventoryTransaction
+                                                        {
+                                                            ProductId = product.ProductId,
+                                                            TransactionDate = DateTime.Now,
+                                                            Quantity = detail.Quantity,
+                                                            Type = InventoryTransactionType.CancelOrder,
+                                                            Note = $"Hoàn kho do hủy đơn #{order.OrderId}"
+                                                        });
                 }
             }
 
@@ -169,25 +164,19 @@ namespace CaféPourLaVie.Services
         public async Task<List<Order>> GetAllAsync()
         {
             return await _context.Orders
-                .Include(o => o.Account)
-                .Include(o => o.PaymentMethod)
-                .OrderByDescending(o => o.OrderDate)
-                .ToListAsync();
+                                 .Include(o => o.Account)
+                                 .Include(o => o.PaymentMethod)
+                                 .OrderByDescending(o => o.OrderDate)
+                                 .ToListAsync();
         }
 
         public async Task<Order?> GetByIdAsync(int id)
         {
-            return await _context.Orders
-
-                .Include(o => o.Account)
-
-                .Include(o => o.PaymentMethod)
-
-                .Include(o => o.OrderDetails)
-                    .ThenInclude(od => od.Product)
-
-                .FirstOrDefaultAsync(
-                    o => o.OrderId == id);
+            return await _context.Orders.Include(o => o.Account)
+                                        .Include(o => o.PaymentMethod)
+                                        .Include(o => o.OrderDetails)
+                                        .ThenInclude(od => od.Product)
+                                        .FirstOrDefaultAsync(o => o.OrderId == id);
         }
     }
 }
