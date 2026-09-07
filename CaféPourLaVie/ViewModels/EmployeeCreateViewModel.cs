@@ -30,7 +30,7 @@ namespace CaféPourLaVie.ViewModels
 
         [Phone(ErrorMessage = "Số điện thoại không hợp lệ")]
         [Required]
-        [RegularExpression(@"^\d{11}$", ErrorMessage = "Số điện thoại phải gồm đúng 11 chữ số.")]
+        [RegularExpression(@"^\d{10}$", ErrorMessage = "Số điện thoại phải gồm đúng 10 chữ số.")]
         public string Phone { get; set; }
 
 

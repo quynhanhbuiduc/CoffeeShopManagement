@@ -2,14 +2,14 @@
    GLOBAL
 ======================================== */
 html {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 body {
     margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #f5f6f8;
-    color: #212529;
+    font-family: var(--font-afacad), system-ui, -apple-system, sans-serif;
+    background-color: #f7f7f8;
+    color: #2f2f2f;
 }
 
 
@@ -23,9 +23,9 @@ body {
     bottom: 0;
     width: 250px;
     min-width: 250px;
-    background: #644837;
-    border-right: 1px solid #2d2420;
-    color: #f7ede2;
+    background-color: #292725;
+    border-right: 1px solid #3a3734;
+    color: #ffffff;
     padding: 22px 14px;
     overflow-y: auto;
     z-index: 1000;
@@ -41,7 +41,7 @@ body {
     font-size: 20px;
     font-weight: 600;
     white-space: nowrap;
-    color: #fcf8f2;
+    color: #ffffff;
 }
 
 .brand-icon {
@@ -53,10 +53,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #e8d7c3;
+    background-color: #ffffff;
     border-radius: 50%;
     font-size: 19px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -70,24 +69,22 @@ body {
 }
 
     .sidebar-menu li {
-        margin-bottom: 6px;
+        margin-bottom: 5px;
     }
 
-
-/* Menu link */
 .sidebar-link {
     display: flex;
     align-items: center;
     gap: 13px;
     width: 100%;
-    min-height: 52px;
+    min-height: 48px;
     padding: 0 16px;
-    border-radius: 9px;
-    color: #f1ede9;
+    border-radius: 7px;
+    color: #d8d5d2;
     text-decoration: none;
     font-size: 15.5px;
     font-weight: 500;
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, padding-left 0.2s ease;
+    transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 
@@ -97,39 +94,30 @@ body {
     min-width: 25px;
     text-align: center;
     font-size: 17px;
-    opacity: 0.85;
+    color: #aaa5a0;
 }
 
 
 /* Hover */
 .sidebar-link:hover {
     color: #ffffff;
-    background-color: #825841; 
-    padding-left: 19px;
-    transform: translateX(2px);
+    background-color: #383532;
 }
 
     .sidebar-link:hover .menu-icon {
-        opacity: 1;
+        color: #ffffff;
     }
 
 
 /* Active */
 .sidebar-link.active {
     color: #ffffff;
-    background: linear-gradient(90deg, #533a29 0%, #3e2a1e 100%);
+    background-color: #514b46;
     font-weight: 600;
-    box-shadow: inset 3.5px 0 0 #d4a373, 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
     .sidebar-link.active .menu-icon {
-        opacity: 1;
-    }
-
-    /* Active + hover */
-    .sidebar-link.active:hover {
-        background: linear-gradient(90deg, #5f422f 0%, #463022 100%);
-        padding-left: 19px;
+        color: #ffffff;
     }
 
 
@@ -146,25 +134,25 @@ body {
    TOP BAR
 ======================================== */
 .topbar {
-    height: 82px;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 38px;
     background-color: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e8e7e5;
     position: sticky;
     top: 0;
     z-index: 900;
 }
 
 .welcome-text {
-    font-size: 16px;
-    color: #495057;
+    font-size: 15px;
+    color: #77736f;
 }
 
     .welcome-text strong {
-        color: #212529;
+        color: #2f2f2f;
     }
 
 
@@ -173,22 +161,22 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 105px;
-    height: 42px;
-    padding: 0 18px;
-    border: 1px solid #dc3545;
-    border-radius: 8px;
-    color: #dc3545;
-    background: white;
+    min-width: 100px;
+    height: 40px;
+    padding: 0 17px;
+    border: 1px solid #dedbd8;
+    border-radius: 7px;
+    color: #5f5b57;
+    background-color: #ffffff;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.18s ease;
+    transition: background-color 0.18s ease, color 0.18s ease;
 }
 
     .logout-btn:hover {
-        color: white;
-        background-color: #dc3545;
-        transform: translateY(-1px);
+        color: #ffffff;
+        background-color: #514b46;
+        border-color: #514b46;
     }
 
 
@@ -202,30 +190,31 @@ body {
 }
 
 
-/* ========================================
+    /* ========================================
    PAGE TITLE
 ======================================== */
-.page-content h1,
-.page-content h2 {
-    margin-bottom: 22px;
-    font-weight: 600;
-    color: #212529;
-}
+    .page-content h1,
+    .page-content h2 {
+        margin-bottom: 22px;
+        font-weight: 600;
+        color: #2f2f2f;
+    }
 
 
 /* ========================================
    CARDS
 ======================================== */
 .card {
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e7e5e3;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
     overflow: hidden;
 }
 
 .card-header {
     background-color: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e8e7e5;
     padding: 15px 18px;
     font-weight: 600;
 }
@@ -235,15 +224,16 @@ body {
    TABLE
 ======================================== */
 .table {
-    background-color: white;
+    background-color: #ffffff;
     vertical-align: middle;
 }
 
     .table thead th {
-        background-color: #f8f9fa;
+        background-color: #fafafa;
+        color: #55514d;
         font-weight: 600;
         white-space: nowrap;
-        border-bottom: 2px solid #dee2e6;
+        border-bottom: 1px solid #dedbd8;
     }
 
     .table tbody tr {
@@ -251,7 +241,7 @@ body {
     }
 
         .table tbody tr:hover {
-            background-color: #f8f9fa;
+            background-color: #faf9f8;
         }
 
 
@@ -260,16 +250,185 @@ body {
 ======================================== */
 .btn {
     border-radius: 7px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    font-weight: 500;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
     .btn:hover {
-        transform: translateY(-1px);
+        transform: none;
     }
 
+    .btn:focus,
+    .btn.focus {
+        box-shadow: 0 0 0 0.15rem rgba(91, 70, 54, 0.15);
+    }
+
+/* Primary — nâu thương hiệu */
 .btn-primary {
-    font-weight: 500;
+    background-color: #5b4636;
+    border-color: #5b4636;
+    color: #ffffff;
 }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: #49382c;
+        border-color: #49382c;
+        color: #ffffff;
+    }
+
+/* Secondary — xám ấm trung tính */
+.btn-secondary {
+    background-color: #8c8478;
+    border-color: #8c8478;
+    color: #ffffff;
+}
+
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+        background-color: #746c62;
+        border-color: #746c62;
+        color: #ffffff;
+    }
+
+/* Success — xanh đất, đồng bộ với .stock-badge.available */
+.btn-success {
+    background-color: #3f7350;
+    border-color: #3f7350;
+    color: #ffffff;
+}
+
+    .btn-success:hover,
+    .btn-success:focus {
+        background-color: #335d40;
+        border-color: #335d40;
+        color: #ffffff;
+    }
+
+/* Danger — đỏ đất, đồng bộ với .stock-badge.out */
+.btn-danger {
+    background-color: #a34b4b;
+    border-color: #a34b4b;
+    color: #ffffff;
+}
+
+    .btn-danger:hover,
+    .btn-danger:focus {
+        background-color: #8a3d3d;
+        border-color: #8a3d3d;
+        color: #ffffff;
+    }
+
+/* Warning — vàng hổ phách đất, đồng bộ với .stock-badge.low */
+.btn-warning {
+    background-color: #b3872f;
+    border-color: #b3872f;
+    color: #ffffff;
+}
+
+    .btn-warning:hover,
+    .btn-warning:focus {
+        background-color: #96701f;
+        border-color: #96701f;
+        color: #ffffff;
+    }
+
+/* Info — xanh xám ấm, cùng tông với bảng màu chung */
+.btn-info {
+    background-color: #4f7a8b;
+    border-color: #4f7a8b;
+    color: #ffffff;
+}
+
+    .btn-info:hover,
+    .btn-info:focus {
+        background-color: #3f6270;
+        border-color: #3f6270;
+        color: #ffffff;
+    }
+
+/* Outline variants — dùng chung màu chữ/viền với bản solid,
+   khi hover mới tô nền đặc */
+.btn-outline-primary {
+    color: #5b4636;
+    border-color: #5b4636;
+}
+
+    .btn-outline-primary:hover,
+    .btn-outline-primary:focus {
+        background-color: #5b4636;
+        border-color: #5b4636;
+        color: #ffffff;
+    }
+
+.btn-outline-secondary {
+    color: #8c8478;
+    border-color: #8c8478;
+}
+
+    .btn-outline-secondary:hover,
+    .btn-outline-secondary:focus {
+        background-color: #8c8478;
+        border-color: #8c8478;
+        color: #ffffff;
+    }
+
+.btn-outline-success {
+    color: #3f7350;
+    border-color: #3f7350;
+}
+
+    .btn-outline-success:hover,
+    .btn-outline-success:focus {
+        background-color: #3f7350;
+        border-color: #3f7350;
+        color: #ffffff;
+    }
+
+.btn-outline-danger {
+    color: #a34b4b;
+    border-color: #a34b4b;
+}
+
+    .btn-outline-danger:hover,
+    .btn-outline-danger:focus {
+        background-color: #a34b4b;
+        border-color: #a34b4b;
+        color: #ffffff;
+    }
+
+.btn-outline-warning {
+    color: #96701f;
+    border-color: #b3872f;
+}
+
+    .btn-outline-warning:hover,
+    .btn-outline-warning:focus {
+        background-color: #b3872f;
+        border-color: #b3872f;
+        color: #ffffff;
+    }
+
+.btn-outline-info {
+    color: #4f7a8b;
+    border-color: #4f7a8b;
+}
+
+    .btn-outline-info:hover,
+    .btn-outline-info:focus {
+        background-color: #4f7a8b;
+        border-color: #4f7a8b;
+        color: #ffffff;
+    }
+
+/* Close button — dịu lại theo tông trung tính ấm thay vì đen thuần */
+.btn-close {
+    opacity: 0.6;
+}
+
+    .btn-close:hover {
+        opacity: 1;
+    }
 
 
 /* ========================================
@@ -279,13 +438,13 @@ body {
 .form-select {
     min-height: 42px;
     border-radius: 7px;
-    border-color: #ced4da;
+    border-color: #d8d5d2;
 }
 
     .form-control:focus,
     .form-select:focus {
-        border-color: #86b7fe;
-        box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.15);
+        border-color: #9b8776;
+        box-shadow: 0 0 0 0.15rem rgba(91, 70, 54, 0.10);
     }
 
 
@@ -304,12 +463,12 @@ body {
 ======================================== */
 .product-card {
     height: 100%;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    transition: box-shadow 0.18s ease;
 }
 
     .product-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+        transform: none;
+        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
     }
 
     .product-card img {
@@ -325,54 +484,22 @@ body {
 .dashboard-card {
     height: 100%;
     padding: 20px;
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    background-color: #ffffff;
+    border: 1px solid #e7e5e3;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
 
 .dashboard-card-title {
     font-size: 14px;
-    color: #6c757d;
+    color: #77736f;
     margin-bottom: 8px;
 }
 
 .dashboard-card-value {
     font-size: 27px;
     font-weight: 650;
-}
-
-
-/* ========================================
-   RESPONSIVE
-======================================== */
-@media (max-width: 768px) {
-
-    .sidebar {
-        width: 210px;
-        min-width: 210px;
-    }
-
-
-    .main-wrapper {
-        margin-left: 210px;
-    }
-
-    .sidebar-brand {
-        font-size: 17px;
-    }
-
-    .sidebar-link {
-        font-size: 14px;
-    }
-
-    .topbar {
-        padding: 0 20px;
-    }
-
-    .page-content {
-        padding: 24px 20px;
-    }
+    color: #2f2f2f;
 }
 
 
@@ -394,37 +521,40 @@ body {
 
 .pos-title {
     margin: 0 !important;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 650;
+    color: #2f2f2f;
 }
 
 .pos-subtitle {
     margin: 5px 0 0;
-    color: #6c757d;
+    color: #77736f;
     font-size: 15px;
 }
 
 .pos-cart-btn {
-    background: #f59f00;
-    color: white;
+    background-color: #5b4636;
+    color: #ffffff;
     border: none;
     padding: 11px 20px;
     font-weight: 600;
-    border-radius: 8px;
+    border-radius: 7px;
 }
 
     .pos-cart-btn:hover {
-        background: #e67700;
-        color: white;
+        background-color: #49382c;
+        color: #ffffff;
     }
 
 
-/* SEARCH */
+/* ========================================
+   SEARCH
+======================================== */
 .pos-search-box {
-    background: white;
-    padding: 18px;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 17px;
+    border: 1px solid #e7e5e3;
+    border-radius: 8px;
     margin-bottom: 24px;
 }
 
@@ -437,6 +567,7 @@ body {
 .search-icon {
     font-size: 18px;
     margin-left: 5px;
+    color: #77736f;
 }
 
 .pos-search-input {
@@ -453,7 +584,9 @@ body {
 }
 
 
-/* CATEGORY */
+/* ========================================
+   CATEGORY
+======================================== */
 .pos-section {
     margin-bottom: 25px;
 }
@@ -461,74 +594,79 @@ body {
 .section-title {
     font-size: 18px;
     font-weight: 600;
+    color: #2f2f2f;
 }
 
 .category-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 9px;
+    gap: 8px;
     margin-top: 12px;
 }
 
 .category-btn {
-    padding: 9px 16px;
-    border: 1px solid #ced4da;
-    border-radius: 8px;
-    color: #495057;
-    background: white;
+    padding: 8px 15px;
+    border: 1px solid #d8d5d2;
+    border-radius: 7px;
+    color: #5f5b57;
+    background-color: #ffffff;
     text-decoration: none;
     font-size: 14px;
-    transition: all 0.18s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
     .category-btn:hover {
-        border-color: #0d6efd;
-        color: #0d6efd;
-        background: #f5f9ff;
+        border-color: #9b8776;
+        color: #5b4636;
+        background-color: #faf8f6;
     }
 
     .category-btn.active {
-        color: white;
-        background: #0d6efd;
-        border-color: #0d6efd;
+        color: #ffffff;
+        background-color: #5b4636;
+        border-color: #5b4636;
         font-weight: 600;
     }
 
 
-/* PRODUCT HEADER */
+/* ========================================
+   PRODUCT HEADER
+======================================== */
 .pos-products-header {
     margin-bottom: 15px;
 }
 
 .product-count {
     margin-left: 10px;
-    color: #6c757d;
+    color: #77736f;
     font-size: 14px;
 }
 
 
-/* PRODUCT CARD */
+/* ========================================
+   POS PRODUCT CARD
+======================================== */
 .pos-product-card {
     height: 100%;
-    background: white;
-    border: 1px solid #e3e6ea;
-    border-radius: 11px;
+    background-color: #ffffff;
+    border: 1px solid #e5e2df;
+    border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    transition: box-shadow 0.18s ease;
     display: flex;
     flex-direction: column;
 }
 
     .pos-product-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+        transform: none;
+        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
     }
 
 
 /* IMAGE */
 .product-image-wrapper {
     height: 190px;
-    background: #f5f5f5;
+    background-color: #f2f1ef;
     overflow: hidden;
 }
 
@@ -540,7 +678,7 @@ body {
 }
 
 .pos-product-card:hover .product-image {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .product-no-image {
@@ -549,7 +687,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 50px;
-    color: #adb5bd;
+    color: #aaa5a0;
 }
 
 
@@ -567,10 +705,11 @@ body {
     font-size: 17px;
     line-height: 1.4;
     font-weight: 600;
+    color: #2f2f2f;
 }
 
 .product-price {
-    color: #d9480f;
+    color: #5b4636;
     font-size: 18px;
     font-weight: 650;
     margin-bottom: 12px;
@@ -584,7 +723,7 @@ body {
     justify-content: space-between;
     margin-bottom: 15px;
     font-size: 14px;
-    color: #6c757d;
+    color: #77736f;
 }
 
 .stock-badge {
@@ -595,18 +734,18 @@ body {
 }
 
     .stock-badge.available {
-        background: #e6fcf5;
-        color: #087f5b;
+        background-color: #edf6f0;
+        color: #39704d;
     }
 
     .stock-badge.low {
-        background: #fff3bf;
-        color: #e67700;
+        background-color: #faf3df;
+        color: #967329;
     }
 
     .stock-badge.out {
-        background: #ffe3e3;
-        color: #c92a2a;
+        background-color: #f9eaea;
+        color: #a34b4b;
     }
 
 
@@ -618,8 +757,35 @@ body {
 }
 
 
-/* MOBILE */
+/* ========================================
+   RESPONSIVE
+======================================== */
 @media (max-width: 768px) {
+
+    .sidebar {
+        width: 210px;
+        min-width: 210px;
+    }
+
+    .main-wrapper {
+        margin-left: 210px;
+    }
+
+    .sidebar-brand {
+        font-size: 17px;
+    }
+
+    .sidebar-link {
+        font-size: 14px;
+    }
+
+    .topbar {
+        padding: 0 20px;
+    }
+
+    .page-content {
+        padding: 24px 20px;
+    }
 
     .pos-header {
         align-items: flex-start;
@@ -638,4 +804,57 @@ body {
     .search-btn {
         width: 100%;
     }
+}
+
+
+/* ========================================
+   PAGINATION 
+======================================== */
+.pagination {
+    display: flex;
+    justify-content: center; 
+    margin-top: 25px;
+    margin-bottom: 20px;
+    gap: 6px; /* Create gap between pagination items */
+}
+
+.page-item .page-link {
+    color: #6C5F55; 
+    background-color: #FFFFFF;
+    border: 1px solid #EAE5DF;
+    border-radius: 8px; 
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+    /* Hover */
+    .page-item .page-link:hover {
+        color: #8B7355;
+        background-color: #F8F6F3;
+        border-color: #D8CAB9;
+        transform: translateY(-1px);
+    }
+
+/* Active */
+.page-item.active .page-link {
+    z-index: 3;
+    color: #FFFFFF;
+    background-color: #8B7355; 
+    border-color: #8B7355;
+    box-shadow: 0 4px 8px rgba(139, 115, 85, 0.2);
+}
+
+/* Fix Bootstrap sticky nav */
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    border-radius: 8px;
+}
+
+/* Focus */
+.page-link:focus {
+    color: #8B7355;
+    background-color: #F8F6F3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(139, 115, 85, 0.25);
 }

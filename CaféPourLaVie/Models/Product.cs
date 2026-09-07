@@ -11,7 +11,7 @@ namespace CaféPourLaVie.Models
         [StringLength(50, ErrorMessage = "Tên sản phẩm không được vượt quá 50 ký tự.")]
         public string ProductName { get; set; }
 
-        [MaxLength(100)]
+
         public string? Description { get; set; }
 
 
