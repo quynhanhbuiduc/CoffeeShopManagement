@@ -90,7 +90,8 @@ Các thực thể chính:
 - ImportReceipt
 
 Database relationship diagram:
-<img width="1612" height="515" alt="erd" src="https://github.com/user-attachments/assets/723683c9-0e03-4d52-84b9-eca6ad949971" />
+<img width="1404" height="1049" alt="erd" src="https://github.com/user-attachments/assets/62e026d0-f731-42a8-850b-82d48becf51f" />
+
 
 ## System Use Cases
 Actors chính:
@@ -99,7 +100,8 @@ Actors chính:
 
 Main use cases:
 - General Use Case Diagram:
-<img width="1239" height="1152" alt="newgeneralusecase" src="https://github.com/user-attachments/assets/acfbfa9b-b927-4277-b12c-b49ce3fabc91" />
+<img width="848" height="790" alt="GeneralUseCase" src="https://github.com/user-attachments/assets/fe409f0c-4dc2-4bb4-bf25-2aa36edf2a1f" />
+
 
 
 ## Installation
