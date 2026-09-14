@@ -62,24 +62,24 @@ Hệ thống hỗ trợ nhân viên thực hiện bán hàng tại quầy (POS),
 
 
 ## System Architecture
-The project follows MVC architecture:
+Dự án tuân theo kiến ​​trúc MVC:
 
 Controller:
-- Handles user requests.
-- Communicates with Services.
-
+- Xử lý các yêu cầu từ người dùng.
+- Giao tiếp với các Service.
+  
 Service:
-- Contains business logic.
+- Chứa logic nghiệp vụ.
 
 Repository/Data Access:
-- Handles database operations.
+- Xử lý các thao tác với cơ sở dữ liệu.
 
-Database:
-- SQL Server managed by Entity Framework Core.
+Cơ sở dữ liệu:
+- SQL Server được quản lý bởi Entity Framework Core.
 
 
 ## Database Design
-Main entities:
+Các thực thể chính:
 - Account
 - Employee
 - Product
@@ -93,19 +93,12 @@ Database relationship diagram:
 <img width="1612" height="515" alt="erd" src="https://github.com/user-attachments/assets/723683c9-0e03-4d52-84b9-eca6ad949971" />
 
 ## System Use Cases
-Main actors:
+Actors chính:
 - Admin
 - Employee
 
 Main use cases:
-- Login
-- Manage products
-- Manage employees
-- Create order
-- Manage inventory
-- View reports
-
-General Use Case Diagram:
+- General Use Case Diagram:
 <img width="1239" height="1152" alt="newgeneralusecase" src="https://github.com/user-attachments/assets/acfbfa9b-b927-4277-b12c-b49ce3fabc91" />
 
 
