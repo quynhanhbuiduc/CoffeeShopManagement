@@ -89,7 +89,7 @@ Các thực thể chính:
 - Inventory
 - ImportReceipt
 
-Database relationship diagram:
+Lược đồ cơ sở dữ liệu quan hệ:
 <img width="1404" height="1049" alt="erd" src="https://github.com/user-attachments/assets/62e026d0-f731-42a8-850b-82d48becf51f" />
 
 
@@ -98,8 +98,7 @@ Actors chính:
 - Admin
 - Employee
 
-Main use cases:
-- General Use Case Diagram:
+Sơ đồ use cases tổng quan:
 <img width="848" height="790" alt="GeneralUseCase" src="https://github.com/user-attachments/assets/fe409f0c-4dc2-4bb4-bf25-2aa36edf2a1f" />
 
 
