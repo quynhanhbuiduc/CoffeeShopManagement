@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CaféPourLaVie.Controllers
 {
-    [Authorize(Roles = "Admin, Employee")]
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
         private readonly IDashboardService _dashboardService;
