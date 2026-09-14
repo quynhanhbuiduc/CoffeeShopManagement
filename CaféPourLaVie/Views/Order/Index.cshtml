@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CaféPourLaVie.Models.Order>
 
 @{
-    ViewData["Title"] = "Danh sách hóa đơn";
+    ViewData["Title"] = "Danh sách đơn hàng";
 }
 
 <h2>Danh sách đơn hàng</h2>
@@ -51,7 +51,7 @@
                     {
                         <form asp-action="Cancel" asp-controller="Order" asp-route-id="@item.OrderId" method="post" class="d-inline" onsubmit="return confirm('Bạn có chắc chắn muốn hủy hóa đơn này và hoàn lại số lượng vào kho không?');">
                             <button type="submit" class="btn btn-danger btn-sm">
-                                Hủy hóa đơn
+                                Hủy đơn hàng
                             </button>
                         </form>
                     }

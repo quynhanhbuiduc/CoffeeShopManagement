@@ -165,6 +165,7 @@ namespace CaféPourLaVie.Controllers
         {
             var cart = _cartService.GetCart();
 
+            //Check if the cart is empty, if so redirect to the cart page
             if (cart.Count == 0)
             {
                 return RedirectToAction("Cart");

@@ -48,9 +48,7 @@ namespace CaféPourLaVie.Services
             var cart = GetCart();
 
 
-            var item = cart
-                .FirstOrDefault(x =>
-                    x.ProductId == product.ProductId);
+            var item = cart.FirstOrDefault(x => x.ProductId == product.ProductId);
 
 
             if (item == null)
@@ -58,13 +56,11 @@ namespace CaféPourLaVie.Services
                 if (!product.Status)
                     return;
               
-                cart.Add(new CartItem
-                {
-                    ProductId = product.ProductId,
-                    ProductName = product.ProductName,
-                    Price = product.Price,
-                    Quantity = 1
-                });
+                cart.Add(new CartItem{ProductId = product.ProductId,
+                                      ProductName = product.ProductName,
+                                      Price = product.Price,
+                                      Quantity = 1
+                                      });
             }
 
             else

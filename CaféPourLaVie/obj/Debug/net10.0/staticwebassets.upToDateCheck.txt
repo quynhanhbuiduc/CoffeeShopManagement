@@ -1,3 +1,4 @@
+wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\products\012bee47-751d-48e2-aa66-f5c43efabb66.webp
 wwwroot\images\products\02c5258d-cc94-467c-a996-bd65790118fb.webp
@@ -111,7 +112,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\site.css
+C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\wwwroot\css\site.css
 C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\wwwroot\favicon.ico
 C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\wwwroot\js\site.js
 C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -173,4 +174,3 @@ C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\wwwroot\lib\jquery\dis
 C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\wwwroot\lib\jquery\LICENSE.txt
-C:\Users\Admin\source\repos\CaféPourLaVie\CaféPourLaVie\wwwroot\css\site.css

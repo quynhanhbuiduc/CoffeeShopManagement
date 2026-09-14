@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CaféPourLaVie")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1c53620b4de39a64ca71349691b10731cd1d2d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b27617294326a72896dfba2cf6eeaaa8d54233aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("CaféPourLaVie")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CaféPourLaVie")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

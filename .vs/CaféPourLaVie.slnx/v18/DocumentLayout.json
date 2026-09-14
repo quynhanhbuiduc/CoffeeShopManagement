@@ -3,28 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\models\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\models\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\services\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\services\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\controllers\\salescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\controllers\\salescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,19 +26,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-14T02:19:17.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "Caf\u00E9PourLaVie\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-09-07T05:34:20.258Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Views\\Order\\Index.cshtml",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Views\\Order\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Views\\Order\\Index.cshtml",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Views\\Order\\Index.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADYAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-14T02:18:51.817Z",
               "EditorCaption": ""
             },
             {
@@ -56,63 +61,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Caf\u00E9PourLaVie\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-07T03:28:30.645Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PaymentMethod.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\PaymentMethod.cs",
-              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Models\\PaymentMethod.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\PaymentMethod.cs",
-              "RelativeToolTip": "Caf\u00E9PourLaVie\\Models\\PaymentMethod.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Title": "CartService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Services\\CartService.cs",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Services\\CartService.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Services\\CartService.cs",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Services\\CartService.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowD4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T15:57:27.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Models\\Product.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\Product.cs",
-              "RelativeToolTip": "Caf\u00E9PourLaVie\\Models\\Product.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA4AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T15:27:50.765Z",
+              "WhenOpened": "2026-09-13T14:52:19.876Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Account.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\Account.cs",
-              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Models\\Account.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Models\\Account.cs",
-              "RelativeToolTip": "Caf\u00E9PourLaVie\\Models\\Account.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAhAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "SalesController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Controllers\\SalesController.cs",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Controllers\\SalesController.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Controllers\\SalesController.cs",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Controllers\\SalesController.cs",
+              "ViewState": "AgIAALIAAAAAAAAAAAAAwMcAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T14:03:09.015Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EmployeeService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
-              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
-              "RelativeToolTip": "Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAswF8AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T13:47:17.482Z"
+              "WhenOpened": "2026-09-13T14:42:46.303Z"
             }
           ]
         }
