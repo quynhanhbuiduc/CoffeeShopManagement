@@ -1,5 +1,7 @@
 ﻿using CaféPourLaVie.Data;
+using CaféPourLaVie.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -10,9 +12,12 @@ namespace CaféPourLaVie.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public AccountController(ApplicationDbContext context)
+        private readonly IPasswordHasher<Account> _passwordHasher;
+
+        public AccountController(ApplicationDbContext context, IPasswordHasher<Account> passwordHasher)
         {
             _context = context;
+            _passwordHasher = passwordHasher;
         }
 
 
@@ -29,10 +34,7 @@ namespace CaféPourLaVie.Controllers
         public async Task<IActionResult> Login(string username, string password)
         {
             var account = await _context.Accounts
-                .FirstOrDefaultAsync(a =>
-                    a.Username == username &&
-                    a.Password == password);
-
+                .FirstOrDefaultAsync(a => a.Username == username);
 
             if (account == null)
             {
@@ -40,15 +42,24 @@ namespace CaféPourLaVie.Controllers
                 return View();
             }
 
-
             if (!account.Status)
             {
                 ViewBag.Error = "Tài khoản đã bị khóa";
                 return View();
             }
 
+            var result = _passwordHasher.VerifyHashedPassword(
+                account,
+                account.Password,
+                password
+            );
 
-            // Create Claims
+            if (result == PasswordVerificationResult.Failed)
+            {
+                ViewBag.Error = "Sai tài khoản hoặc mật khẩu";
+                return View();
+            }
+
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, account.Username),
@@ -56,15 +67,10 @@ namespace CaféPourLaVie.Controllers
                 new Claim("AccountId", account.AccountId.ToString())
             };
 
-
             var identity = new ClaimsIdentity(claims, "CookieAuth");
-
-
             var principal = new ClaimsPrincipal(identity);
 
-
             await HttpContext.SignInAsync("CookieAuth", principal);
-
 
             if (account.Role == "Admin")
             {

@@ -11,11 +11,12 @@ namespace CaféPourLaVie.Services
     public class EmployeeService : IEmployeeService
     {
         private readonly ApplicationDbContext _context;
-        private readonly PasswordHasher<Account> _passwordHasher = new();
+        private readonly IPasswordHasher<Account> _passwordHasher;
 
-        public EmployeeService(ApplicationDbContext context)
+        public EmployeeService(ApplicationDbContext context, IPasswordHasher<Account> passwordHasher)
         {
             _context = context;
+            _passwordHasher = passwordHasher;
         }
 
 

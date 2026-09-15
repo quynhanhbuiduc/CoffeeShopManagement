@@ -1,6 +1,8 @@
 using CaféPourLaVie.Data;
+using CaféPourLaVie.Models;
 using CaféPourLaVie.Services;
 using CaféPourLaVie.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +31,9 @@ builder.Services.AddSession();
 
 // Add CartService as a scoped service
 builder.Services.AddScoped<CartService>();
+
+// Add PasswordHasher as a scoped service
+builder.Services.AddScoped<IPasswordHasher<Account>, PasswordHasher<Account>>();
 
 // Add OrderService as a scoped service
 builder.Services.AddScoped<IOrderService, OrderService>();

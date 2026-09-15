@@ -81,6 +81,7 @@ namespace CaféPourLaVie.Data
                         .OnDelete(DeleteBehavior.Restrict);
 
 
+
             //=========== SEED DATA ===========
             modelBuilder.Entity<PaymentMethod>()
                 .HasData(

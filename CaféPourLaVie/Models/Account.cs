@@ -11,7 +11,6 @@ namespace CaféPourLaVie.Models
         public string Username { get; set; }
         
 
-        [MaxLength(20)]
         public string Password { get; set; }
 
         public string Role { get; set; }
