@@ -241,7 +241,7 @@ namespace CaféPourLaVie.Services
                 };
             }
 
-            employee.Account.Password = "123456";
+            employee.Account.Password = _passwordHasher.HashPassword(employee.Account, "123456");
 
             await _context.SaveChangesAsync();
 

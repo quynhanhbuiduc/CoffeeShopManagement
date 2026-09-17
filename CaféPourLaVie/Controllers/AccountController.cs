@@ -63,11 +63,11 @@ namespace CaféPourLaVie.Controllers
                 }
 
                 var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, account.Username),
-            new Claim(ClaimTypes.Role, account.Role),
-            new Claim("AccountId", account.AccountId.ToString())
-        };
+                {
+                    new Claim(ClaimTypes.Name, account.Username),
+                    new Claim(ClaimTypes.Role, account.Role),
+                    new Claim("AccountId", account.AccountId.ToString())
+                };
 
                 var identity = new ClaimsIdentity(claims, "CookieAuth");
                 var principal = new ClaimsPrincipal(identity);

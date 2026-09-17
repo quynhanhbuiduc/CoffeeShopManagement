@@ -89,7 +89,8 @@ namespace CaféPourLaVie.Services
 
             // ============== IMPORT RECEIPTS ==============
             var importReceipts = _context.ImportReceipts.Where(r =>r.ImportDate >= startDate &&
-                                                                    r.ImportDate < endDate);
+                                                                    r.ImportDate < endDate &&
+                                                                    r.Status == ImportStatus.Approved);
 
 
             var totalImportReceipts = await importReceipts.CountAsync();

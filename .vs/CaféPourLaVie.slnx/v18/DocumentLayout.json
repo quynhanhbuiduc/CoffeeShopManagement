@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\services\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\services\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|c:\\users\\admin\\source\\repos\\caf\u00E9pourlavie\\caf\u00E9pourlavie\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2EBBB223-81FC-D701-B508-63A70848A602}|Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie.csproj|solutionrelative:caf\u00E9pourlavie\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -22,11 +26,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "ReportService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Services\\ReportService.cs",
+              "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Services\\ReportService.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Services\\ReportService.cs",
+              "RelativeToolTip": "Caf\u00E9PourLaVie\\Services\\ReportService.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAgwFsAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-17T11:19:27.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Program.cs",
               "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Program.cs",
@@ -34,38 +55,33 @@
               "RelativeToolTip": "Caf\u00E9PourLaVie\\Program.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAACMAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T02:38:42.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-15T02:38:42.291Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "EmployeeService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
               "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
               "RelativeToolTip": "Caf\u00E9PourLaVie\\Services\\EmployeeService.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAmwA0AAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAQwPEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-15T02:35:46.524Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Caf\u00E9PourLaVie\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\Caf\u00E9PourLaVie\\Caf\u00E9PourLaVie\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Caf\u00E9PourLaVie\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAwwF0AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAADwv2sAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-15T02:17:22.987Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             }
           ]
         }
