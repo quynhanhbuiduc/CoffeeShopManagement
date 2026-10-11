@@ -1,16 +1,16 @@
 # Café Pour La Vie - Coffee Shop Management System
-Website quản lý bán hàng và tồn kho cho cửa hàng cà phê, hỗ trợ quản lý sản phẩm, nhân viên, đơn hàng, kho nguyên liệu và báo cáo doanh thu.
+Website quản lý bán hàng và tồn kho cho cửa hàng cà phê, hỗ trợ quản lý sản phẩm, nhân viên, đơn hàng, tồn kho và xem báo cáo.
 
 
 ## Overview
 Café Pour La Vie là hệ thống quản lý cửa hàng cà phê được xây dựng nhằm số hóa các nghiệp vụ bán hàng và quản lý kho.
 
-Hệ thống hỗ trợ nhân viên thực hiện bán hàng tại quầy (POS), quản lý sản phẩm, theo dõi tồn kho nguyên liệu và cung cấp các báo cáo phục vụ việc quản lý kinh doanh.
+Hệ thống hỗ trợ nhân viên thực hiện bán hàng tại quầy (POS), quản lý sản phẩm, theo dõi tồn kho và cung cấp các báo cáo phục vụ việc quản lý kinh doanh.
 
 
 ## Objectives
 - Xây dựng hệ thống bán hàng trực tuyến/quản lý tại quầy cho cửa hàng cà phê.
-- Hỗ trợ quản lý sản phẩm và nguyên liệu.
+- Hỗ trợ quản lý sản phẩm và tồn kho.
 - Tự động cập nhật tồn kho khi phát sinh đơn hàng.
 - Quản lý thông tin nhân viên và tài khoản.
 - Cung cấp báo cáo doanh thu.
@@ -32,9 +32,7 @@ Hệ thống hỗ trợ nhân viên thực hiện bán hàng tại quầy (POS),
 - Xuất hóa đơn.
 
 ### Inventory Management
-- Quản lý nguyên liệu.
-- Theo dõi số lượng tồn kho.
-- Cảnh báo tồn kho thấp.
+- Quản lý tồn kho.
 
 ### Employee Management
 - Quản lý nhân viên.
